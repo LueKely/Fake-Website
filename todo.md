@@ -1,0 +1,20 @@
+# To-do
+
+## Internals
+
+[] make post get put requests
+[] make post to get all peeps with pagination
+[] on click make a more specific info on user
+[] can edit user when clicking on said user
+[] notification when things went smoothly or not
+
+## Routing
+
+[] for the list of users
+[] creating users
+[] home page?
+
+## Features
+
+[] filter subjects
+[] mobile
