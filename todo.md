@@ -14,7 +14,13 @@
 [] creating users
 [] home page?
 
+## Front end
+
+[] pagination
+[] scrolling gaming
+[] that home page with fake shit
+
 ## Features
 
 [] filter subjects
-[] mobile
+[] mobile view
