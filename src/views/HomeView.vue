@@ -1,13 +1,5 @@
-<script setup lang="ts">
-	import TheWelcome from '../components/TheWelcome.vue';
-	import { people } from '@/stores/yow';
-
-	const pepes = people();
-	console.log(pepes.sayName);
-</script>
+<script setup lang="ts"></script>
 
 <template>
-	<main>
-		<TheWelcome />
-	</main>
+	<h1>Hi</h1>
 </template>

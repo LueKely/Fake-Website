@@ -1,5 +1,4 @@
 <script setup lang="ts">
-	import axios from 'axios';
 	import { ref } from 'vue';
 
 	type joe = string;
@@ -14,13 +13,6 @@
 	// 		console.log(response);
 	// 	});
 	// };
-
-	function getData(): void {
-		axios.get('https://reqres.in/api/users').then((response) => {
-			console.log(response.data.data[0] ?? 'error');
-		});
-	}
-	getData();
 </script>
 
 <template>
