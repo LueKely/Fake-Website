@@ -3,18 +3,19 @@
 	import { useRoute } from 'vue-router';
 	import { onMounted } from 'vue';
 
+	const prop = defineProps<{ id: string }>();
 	const route = useRoute();
 
-	async function getData(id: string) {
+	async function getData(id: number) {
 		const lue = await axios.get(`https://reqres.in/api/users?page=${id}`);
 		alert(`https://reqres.in/api/users?page=${id}`);
 		console.log(lue);
 	}
 
 	onMounted(() => {
-		getData(`${route.params.id}`);
+		getData(parseInt(prop.id));
 	});
 </script>
 <template>
-	<div>This is pageeeeeees {{ route.params.id }}</div>
+	<div>This is pageeeeeees {{ prop.id }}</div>
 </template>

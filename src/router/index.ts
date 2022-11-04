@@ -26,6 +26,7 @@ const router = createRouter({
 					path: 'Page/:id',
 					name: 'PagesView',
 					component: () => import('../views/PagesView.vue'),
+					props: true,
 				},
 			],
 		},
