@@ -16,6 +16,7 @@
 	<nav>
 		<RouterLink to="/">Home</RouterLink>
 		<RouterLink to="/about">About</RouterLink>
+		<RouterLink to="/PageView/Page/1">View Page</RouterLink>
 	</nav>
 	<RouterView />
 </template>
