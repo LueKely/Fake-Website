@@ -1,16 +1,17 @@
 <script setup lang="ts">
 	import { RouterLink, RouterView } from 'vue-router';
-	import axios from 'axios';
-	import { ref } from 'vue';
-	async function getData(id: number) {
-		const lue = await axios.get(`https://reqres.in/api/users?page=${id}`);
-		alert(`https://reqres.in/api/users?page=${id}`);
-		console.log(lue);
-	}
+	import { useFetchData } from '@/stores/fetchList';
+	import { onMounted, ref } from 'vue';
+	const fetchPages = useFetchData();
+
+	onMounted(async () => {
+		await fetchPages.getData(1).then(() => {
+			console.log(fetchPages.dataValue.data);
+		});
+	});
 </script>
 <template>
 	<h1>View Page tite</h1>
-
+	<p>page tite has the value {{ fetchPages.dataValue }}</p>
 	<router-view />
-	<Router-Link to=""></Router-Link>
 </template>
