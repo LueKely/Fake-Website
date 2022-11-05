@@ -1,10 +1,9 @@
 <script setup lang="ts">
 	import axios from 'axios';
-	import { useRoute } from 'vue-router';
+
 	import { onMounted } from 'vue';
 
 	const prop = defineProps<{ id: string }>();
-	const route = useRoute();
 
 	async function getData(id: number) {
 		const lue = await axios.get(`https://reqres.in/api/users?page=${id}`);
