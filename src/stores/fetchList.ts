@@ -3,7 +3,8 @@ import { defineStore } from 'pinia';
 import axios from 'axios';
 
 export const useFetchData = defineStore('fetchPages', () => {
-	const dataValue = ref<any>('Wala');
+	const dataValue = ref<any>({});
+
 	async function getData(id: number) {
 		const fetchedData = ref(
 			await axios.get(`https://reqres.in/api/users?page=${id}`)
