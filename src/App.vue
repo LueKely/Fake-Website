@@ -1,6 +1,5 @@
 <script setup lang="ts">
 	import { RouterLink, RouterView } from 'vue-router';
-	import HelloWorld from './components/HelloWorld.vue';
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
 
