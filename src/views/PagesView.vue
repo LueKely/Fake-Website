@@ -13,7 +13,6 @@
 		await fetchPages.getData(+prop.id);
 		await console.log(fetchPages.fetchedId);
 		fetchPeople.value = await fetchPages.fetchedId;
-		await provide<[PersonInfo]>('peopleData', fetchPages.fetchedId);
 	}
 
 	watch(prop, () => {
@@ -21,6 +20,7 @@
 	});
 
 	onMounted(() => {
+		provide('peopleData', 'hello');
 		getAll();
 	});
 </script>

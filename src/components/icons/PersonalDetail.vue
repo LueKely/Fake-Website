@@ -2,9 +2,7 @@
 	import { inject, ref, onMounted } from 'vue';
 	import type { PersonInfo } from '@/stores/types';
 	const injected = ref();
-	onMounted(async () => {
-		injected.value = await inject<[PersonInfo]>('peopleData');
-	});
+	injected.value = inject('peopleData');
 </script>
 <template>
 	<h1>This Personal Detail</h1>
