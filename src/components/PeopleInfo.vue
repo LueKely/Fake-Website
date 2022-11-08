@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { onMounted } from 'vue';
 	import type { PersonInfo } from '@/stores/types';
-	import PersonalDetail from './icons/PersonalDetail.vue';
+	import PersonalDetail from './PersonalDetail.vue';
 	const props = defineProps<{ fetchedPerson: PersonInfo }>();
 
 	onMounted(async () => {});
@@ -14,8 +14,9 @@
 			props.fetchedPerson.last_name
 		}}
 	</h1>
+	<button click="">More Details</button>
 	<div>
-		<PersonalDetail></PersonalDetail>
+		<PersonalDetail :fetched-person="props.fetchedPerson"></PersonalDetail>
 	</div>
 </template>
 

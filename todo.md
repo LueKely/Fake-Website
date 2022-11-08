@@ -7,6 +7,7 @@
 [] on click make a more specific info on user
 [] can edit user when clicking on said user
 [] notification when things went smoothly or not
+[] make teleport and vif for more details
 
 ## Routing
 

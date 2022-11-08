@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import PeopleInfo from '@/components/PeopleInfo.vue';
 	import { useFetchData } from '@/stores/fetchList';
-	import { onMounted, ref, watch, provide } from 'vue';
+	import { onMounted, ref, watch } from 'vue';
 	import type { PersonInfo } from '@/stores/types';
 
 	const prop = defineProps<{ id: string }>();
@@ -20,7 +20,6 @@
 	});
 
 	onMounted(() => {
-		provide('peopleData', 'hello');
 		getAll();
 	});
 </script>
