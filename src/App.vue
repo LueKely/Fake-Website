@@ -13,10 +13,11 @@
 
 <template>
 	<nav>
-		<RouterLink to="/">Home</RouterLink>
-		<RouterLink to="/about">About</RouterLink>
-		<RouterLink to="/PageView/Page/1">View Page</RouterLink>
-		<RouterLink to="/LogIn">logIn</RouterLink>
+		<RouterLink to="/">Home &nbsp;</RouterLink>
+		<RouterLink to="/about">About &nbsp;</RouterLink>
+		<RouterLink to="/PageView/Page/1">View Page &nbsp;</RouterLink>
+		<RouterLink to="/LogIn">Log in &nbsp;</RouterLink>
+		<RouterLink to="/Register">Register &nbsp;</RouterLink>
 	</nav>
 	<RouterView />
 </template>
