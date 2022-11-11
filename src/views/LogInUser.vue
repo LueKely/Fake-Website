@@ -8,16 +8,20 @@
 	const userLogIn = reactive<user>({ email: '', password: '' });
 
 	async function userLogInReq() {
+		await alert(userLogIn.email + ' ' + userLogIn.password);
+
 		try {
 			const areYouLoggedIn = ref(
 				await axios.post('https://reqres.in/api/login', {
-					email: 'eve.holt@reqres.in',
-					password: 'cityslicka',
+					email: userLogIn.email,
+					password: userLogIn.password,
 				})
 			);
+			await alert('Success!!');
 			await console.log(areYouLoggedIn.value);
 		} catch (error) {
 			console.log(error);
+			alert('error occured');
 		}
 	}
 	async function getSlander() {
