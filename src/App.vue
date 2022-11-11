@@ -2,6 +2,7 @@
 	import { RouterLink, RouterView } from 'vue-router';
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
+	import GoBack from './components/GoBack.vue';
 
 	const count = useCounterStore();
 	const test = people();
@@ -20,6 +21,7 @@
 		<RouterLink to="/Register">Register &nbsp;</RouterLink>
 	</nav>
 	<RouterView />
+	<GoBack></GoBack>
 </template>
 
 <style scoped></style>

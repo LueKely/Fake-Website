@@ -1,6 +1,8 @@
 <script setup lang="ts">
 	import { ref, onMounted } from 'vue';
 	import type { PersonInfo } from '@/stores/types';
+	import GoBackVue from './GoBack.vue';
+
 	const props = defineProps<{ fetchedPerson: PersonInfo }>();
 </script>
 <template>
@@ -13,5 +15,6 @@
 
 	<p>Email: {{ props.fetchedPerson.email }}</p>
 	<p>ID:{{ props.fetchedPerson.id }}</p>
+	<GoBackVue></GoBackVue>
 </template>
 <style></style>
