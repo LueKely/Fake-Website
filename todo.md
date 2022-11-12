@@ -1,9 +1,9 @@
 # To-do
 
 ## Internals
+
 [] session when logging in
 [] add a prompt to log in first in order to access the people
-
 
 [] make post get put requests
 [] make post to get all peeps with pagination
@@ -15,7 +15,8 @@
 
 ## Routing
 
-[] for the list of users
+[] make it so that when a user rights a wrong url they go to a specific 404 page or something
+[x] for the list of users
 [] creating users
 [] home page?
 
