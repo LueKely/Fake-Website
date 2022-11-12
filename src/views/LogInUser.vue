@@ -1,11 +1,13 @@
 <script setup lang="ts">
 	import { RouterLink } from 'vue-router';
 	import axios from 'axios';
-	import { onMounted, ref, reactive } from 'vue';
+	import { onMounted, ref, reactive, watch } from 'vue';
 
 	type user = { email: string; password: string };
 
 	const userLogIn = reactive<user>({ email: '', password: '' });
+	const showPass = ref<boolean>(false);
+	const passType = ref<string>('password');
 
 	async function userLogInReq() {
 		await alert(userLogIn.email + ' ' + userLogIn.password);
@@ -34,15 +36,24 @@
 	onMounted(async () => {
 		getSlander();
 	});
+
+	watch(showPass, () => {
+		showPass.value == false
+			? (passType.value = 'password')
+			: (passType.value = 'text');
+	});
 </script>
 
 <template>
 	<div>Log In</div>
 	<input type="text" v-model="userLogIn.email" placeholder="UserName" />
-	<input type="password" v-model="userLogIn.password" placeholder="Password" />
+	<input :type="passType" v-model="userLogIn.password" placeholder="Password" />
 	<button @click="userLogInReq">Log In!</button>
 	<div>
 		<span> <p>Don't have an acc?</p></span>
 		<span><router-link to="/Register">Register</router-link></span>
 	</div>
+
+	<input type="checkbox" id="showPass" v-model="showPass" />
+	<label for="showPass">Show Password</label>
 </template>
