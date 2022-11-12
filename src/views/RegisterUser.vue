@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import axios from 'axios';
-	import { reactive, ref } from 'vue';
+	import { reactive, ref, computed, watch } from 'vue';
 	import { RouterLink } from 'vue-router';
 
 	type registerUser = {
@@ -13,6 +13,13 @@
 		userName: '',
 		userEmail: '',
 		userPassword: '',
+	});
+
+	const checkPass = ref<string>('');
+	const showPass = ref<boolean>(false);
+	const passType = ref<string>('password');
+	const isPassword = computed<boolean>(() => {
+		return newUser.userPassword != checkPass.value;
 	});
 
 	async function registerNewUser() {
@@ -30,6 +37,12 @@
 			alert('error');
 		}
 	}
+
+	watch(showPass, () => {
+		showPass.value == false
+			? (passType.value = 'password')
+			: (passType.value = 'text');
+	});
 </script>
 
 <template>
@@ -41,14 +54,18 @@
 		placeholder="Insert user Email"
 	/>
 	<input
-		type="password"
+		:type="passType"
 		v-model="newUser.userPassword"
 		placeholder="Insert password"
 	/>
-	<input type="password" placeholder="confirm password" />
+	<input type="password" v-model="checkPass" placeholder="confirm password" />
 	<button @click="registerNewUser">Register!!</button>
 	<div>
 		<p>Already have a password?</p>
 		<router-link to="/Login">Log in</router-link>
 	</div>
+
+	<input type="checkbox" id="showPass" v-model="showPass" />
+	<label for="showPass">Show Password</label>
+	<div v-show="isPassword">Password does not match</div>
 </template>
