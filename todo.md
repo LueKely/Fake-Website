@@ -1,6 +1,9 @@
 # To-do
 
 ## Internals
+[] session when logging in
+[] add a prompt to log in first in order to access the people
+
 
 [] make post get put requests
 [] make post to get all peeps with pagination
@@ -8,7 +11,7 @@
 [] can edit user when clicking on said user
 [] notification when things went smoothly or not
 [] make teleport and vif for more details
-[] log in log out register
+[x] log in log out register
 
 ## Routing
 
