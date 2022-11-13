@@ -1,18 +1,22 @@
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 export const useLogInStore = defineStore('LogInStore', () => {
 	const userName = ref<string | null>('User');
 	const profileImage = ref<string>('https://thispersondoesnotexist.com/image');
-	const notLoggedIn = computed<boolean>(() => {
-		return sessionStorage.length == 0;
-	});
+	const logInStatus = ref<boolean>(false);
+
+	function checkLogInStatus() {
+		sessionStorage.length == 0
+			? (logInStatus.value = false)
+			: (logInStatus.value = true);
+	}
 
 	function getUserName(name: string) {
 		userName.value = name;
 	}
 	// put this on mounted functions
 	function isAlreadyLoggedIn() {
-		if (notLoggedIn.value == false) {
+		if (sessionStorage.length != 0) {
 			userName.value = sessionStorage.getItem('name');
 		}
 	}
@@ -20,8 +24,9 @@ export const useLogInStore = defineStore('LogInStore', () => {
 	return {
 		userName,
 		profileImage,
-		notLoggedIn,
 		getUserName,
 		isAlreadyLoggedIn,
+		logInStatus,
+		checkLogInStatus,
 	};
 });

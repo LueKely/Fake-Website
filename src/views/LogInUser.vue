@@ -1,9 +1,13 @@
 <script setup lang="ts">
 	import { RouterLink } from 'vue-router';
 	import axios from 'axios';
-	import { onMounted, ref, reactive, watch } from 'vue';
+	import { onMounted, ref, reactive, watch, computed } from 'vue';
+	import { useLogInStore } from '@/stores/LogInStore';
+	import LogOut from '@/components/icons/LogOut.vue';
 
 	type user = { email: string; password: string };
+
+	const logInStore = useLogInStore();
 
 	const userLogIn = reactive<user>({ email: '', password: '' });
 	const showPass = ref<boolean>(false);
@@ -19,6 +23,9 @@
 					password: userLogIn.password,
 				})
 			);
+
+			await sessionStorage.setItem('name', 'User');
+			logInStore.checkLogInStatus();
 			await alert('Success!!');
 			await console.log(areYouLoggedIn.value);
 		} catch (error) {
@@ -26,6 +33,7 @@
 			alert('error occured');
 		}
 	}
+	// slander
 	async function getSlander() {
 		const lue = ref(
 			await axios.get('https://sample-mern-backend.vercel.app/api/todos')
@@ -56,4 +64,6 @@
 
 	<input type="checkbox" id="showPass" v-model="showPass" />
 	<label for="showPass">Show Password</label>
+
+	<div v-if="logInStore.logInStatus == true"><LogOut></LogOut></div>
 </template>
