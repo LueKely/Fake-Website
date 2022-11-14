@@ -1,9 +1,17 @@
 <script setup lang="ts">
-	import { onMounted } from 'vue';
+	import { onMounted, ref } from 'vue';
 	import type { PersonInfo } from '@/stores/types';
 	import PersonalDetail from './PersonalDetail.vue';
 	const props = defineProps<{ fetchedPerson: PersonInfo }>();
+	const details = ref<boolean>(false);
 
+	function showDetails() {
+		details.value = true;
+	}
+
+	function hideDetails() {
+		details.value = false;
+	}
 	onMounted(async () => {});
 </script>
 
@@ -14,9 +22,10 @@
 			props.fetchedPerson.last_name
 		}}
 	</h1>
-	<button click="">More Details</button>
-	<div>
+	<button @click="showDetails">More Details</button>
+	<div v-if="details == true">
 		<PersonalDetail :fetched-person="props.fetchedPerson"></PersonalDetail>
+		<button @click="hideDetails">Hide Details</button>
 	</div>
 </template>
 

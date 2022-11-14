@@ -22,8 +22,9 @@
 
 ## Front end
 
-[] pagination
-[] scrolling gaming
+[] night mode
+[X] pagination
+[] scrolling gaming OY WHAT DOES DIS MEAN HU?
 [] that home page with fake shit
 
 ## Features
