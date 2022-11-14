@@ -3,7 +3,7 @@
 	import axios from 'axios';
 	import { onMounted, ref, reactive, watch, computed } from 'vue';
 	import { useLogInStore } from '@/stores/LogInStore';
-	import LogOut from '@/components/icons/LogOut.vue';
+	import LogOut from '@/components/LogOut.vue';
 
 	type user = { email: string; password: string };
 
