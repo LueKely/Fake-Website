@@ -19,6 +19,7 @@
 		<RouterLink to="/PageView/Page/1">View Page &nbsp;</RouterLink>
 		<RouterLink to="/LogIn">Log in &nbsp;</RouterLink>
 		<RouterLink to="/Register">Register &nbsp;</RouterLink>
+		<RouterLink to="/Create">Create User &nbsp;</RouterLink>
 	</nav>
 	<RouterView />
 	<GoBack></GoBack>
