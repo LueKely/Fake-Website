@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { RouterLink, RouterView } from 'vue-router';
 	import { useFetchData } from '@/stores/fetchList';
-	import { onMounted, ref, computed } from 'vue';
+	import { onMounted, ref } from 'vue';
 	import { useLogInStore } from '@/stores/LogInStore';
 
 	const logInStore = useLogInStore();
