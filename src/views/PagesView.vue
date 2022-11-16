@@ -8,7 +8,7 @@
 	const fetchPages = useFetchData();
 
 	// people ID
-	const fetchPeople = ref<PersonInfo[]>();
+	const fetchPeople = ref<{ lue: PersonInfo }>();
 	// const fetchPerson = ref<PersonInfo>();
 	async function getAll() {
 		await fetchPages.getData(+prop.id);
