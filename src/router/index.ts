@@ -29,11 +29,6 @@ const router = createRouter({
 					component: () => import('../views/PagesView.vue'),
 					props: true,
 					beforeEnter(to, from) {
-						console.log('test');
-
-						console.log('hash is' + to.hash);
-						console.log('query is' + to.query);
-
 						if (parseInt(to.params.id.toString()) > 12)
 							return {
 								name: 'NotFound',

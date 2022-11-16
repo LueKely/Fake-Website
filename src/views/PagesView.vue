@@ -6,11 +6,13 @@
 
 	const prop = defineProps<{ id: string }>();
 	const fetchPages = useFetchData();
+
 	// people ID
-	const fetchPeople = ref<[PersonInfo]>();
+	const fetchPeople = ref<PersonInfo[]>();
 	// const fetchPerson = ref<PersonInfo>();
 	async function getAll() {
 		await fetchPages.getData(+prop.id);
+
 		await console.log(fetchPages.fetchedId);
 		fetchPeople.value = await fetchPages.fetchedId;
 	}
@@ -31,4 +33,5 @@
 		:key="index"
 		:fetched-person="item"
 	></PeopleInfo>
+	<div>{{ fetchPeople }}</div>
 </template>
