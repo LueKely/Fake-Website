@@ -15,9 +15,9 @@
 
 ## Routing
 
-[] make it so that when a user rights a wrong url they go to a specific 404 page or something
+[x] make it so that when a user rights a wrong url they go to a specific 404 page or something
 [x] for the list of users
-[] creating users
+[x] creating users
 [] home page?
 
 ## Front end
