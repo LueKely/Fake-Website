@@ -39,6 +39,11 @@ const router = createRouter({
 							};
 					},
 				},
+				{
+					path: 'Search',
+					name: 'Search',
+					component: () => import('../views/SearchQuery.vue'),
+				},
 			],
 		},
 		{
@@ -58,6 +63,7 @@ const router = createRouter({
 			meta: { requiresAuth: true },
 			component: () => import('../views/CreateUser.vue'),
 		},
+
 		{
 			path: '/:pathMatch(.*)*',
 			name: 'NotFound',
@@ -71,6 +77,7 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
 	const logInStore = useLogInStore();
+	logInStore.checkLogInStatus();
 	// to and from are both route objects. must call `next`.
 	if (to.meta.requiresAuth && logInStore.logInStatus == false) {
 		return { name: 'LogIn' };

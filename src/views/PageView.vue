@@ -3,7 +3,7 @@
 	import { useFetchData } from '@/stores/fetchList';
 	import { onMounted, ref } from 'vue';
 	import { useLogInStore } from '@/stores/LogInStore';
-
+	import SearchComponent from '@/components/SearchComponent.vue';
 	const logInStore = useLogInStore();
 	const fetchPages = useFetchData();
 	const pageNumberUrl = ref((number: number) => {
@@ -28,6 +28,7 @@
 	<router-link v-for="n in pageNumber" :key="n" :to="pageNumberUrl(n)">
 		{{ n }}&nbsp;</router-link
 	>
+	<SearchComponent></SearchComponent>
 </template>
 <style scoped>
 	.router-link-active {
