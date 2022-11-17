@@ -4,6 +4,7 @@
 	import { onMounted, ref, reactive, watch, computed } from 'vue';
 	import { useLogInStore } from '@/stores/LogInStore';
 	import LogOut from '@/components/LogOut.vue';
+	import router from '@/router';
 
 	type user = { email: string; password: string };
 
@@ -28,6 +29,7 @@
 			logInStore.checkLogInStatus();
 			await alert('Success!!');
 			await console.log(areYouLoggedIn.value);
+			await router.push({ name: 'home' });
 		} catch (error) {
 			console.log(error);
 			alert('error occured');

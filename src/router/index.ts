@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import { useLogInStore } from '@/stores/LogInStore';
+
+import { defineStore } from 'pinia';
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +23,7 @@ const router = createRouter({
 		{
 			path: '/PageView',
 			name: 'PageView',
+			meta: { requiresAuth: true },
 			component: () => import('../views/PageView.vue'),
 
 			children: [
@@ -32,9 +36,6 @@ const router = createRouter({
 						if (parseInt(to.params.id.toString()) > 12)
 							return {
 								name: 'NotFound',
-								params: { pathMatch: to.path.split('/') },
-								query: to.query,
-								hash: to.hash,
 							};
 					},
 				},
@@ -48,11 +49,13 @@ const router = createRouter({
 		{
 			path: '/Register',
 			name: 'Register',
+
 			component: () => import('../views/RegisterUser.vue'),
 		},
 		{
 			path: '/Create',
 			name: 'Create',
+			meta: { requiresAuth: true },
 			component: () => import('../views/CreateUser.vue'),
 		},
 		{
@@ -61,6 +64,16 @@ const router = createRouter({
 			component: () => import('../views/NotFound.vue'),
 		},
 	],
+	scrollBehavior(to, from, savedPosition) {
+		return savedPosition || { top: 0, behavior: 'smooth' };
+	},
 });
 
+router.beforeEach((to, from) => {
+	const logInStore = useLogInStore();
+	// to and from are both route objects. must call `next`.
+	if (to.meta.requiresAuth && logInStore.logInStatus == false) {
+		return { name: 'LogIn' };
+	}
+});
 export default router;

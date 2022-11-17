@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import axios from 'axios';
-	import { onMounted, reactive } from 'vue';
-	import { useLogInStore } from '@/stores/LogInStore';
+	import { reactive } from 'vue';
+
 	type user = {
 		firstName: string;
 		lastName: string;
@@ -14,7 +14,6 @@
 		email: '',
 		avatar: '',
 	});
-	const logInStore = useLogInStore();
 
 	async function createNewUser() {
 		try {
@@ -31,12 +30,9 @@
 			newUser[key as keyof typeof newUser] = '';
 		}
 	}
-	onMounted(() => {
-		logInStore.checkLogInStatus();
-	});
 </script>
 <template>
-	<div v-if="logInStore.logInStatus == true">
+	<div>
 		<h1>Create User</h1>
 		<div>
 			<input type="text" v-model="newUser.firstName" placeholder="first name" />
@@ -46,8 +42,5 @@
 		</div>
 		<button @click="createNewUser">Submit</button>
 		<button @click="clearInput">Clear</button>
-	</div>
-	<div v-else>
-		<p>Log In First</p>
 	</div>
 </template>
