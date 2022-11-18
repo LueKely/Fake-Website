@@ -18,8 +18,8 @@
 [x] make it so that when a user rights a wrong url they go to a specific 404 page or something
 [x] for the list of users
 [x] creating users
-[] home page?
-[]query parms for search function
+[x] home page?
+[x]query parms for search function
 
 ## Front end
 
@@ -27,9 +27,9 @@
 [X] pagination
 [] scrolling gaming OY WHAT DOES DIS MEAN HU?
 [] that home page with fake shit
-[] make it as search box inside the page views and yeah
+[x] make it as search box inside the page views and yeah
 
 ## Features
 
-[] filter subjects
+[x] filter subjects
 [] mobile view
