@@ -1,9 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, useRoute } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import { useLogInStore } from '@/stores/LogInStore';
-
-import { defineStore } from 'pinia';
-
+import LogInUser from '../views/LogInUser.vue';
+import { useQueryStore } from '@/stores/QueryStore';
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
@@ -49,7 +48,7 @@ const router = createRouter({
 		{
 			path: '/LogIn',
 			name: 'LogIn',
-			component: () => import('../views/LogInUser.vue'),
+			component: LogInUser,
 		},
 		{
 			path: '/Register',
@@ -77,10 +76,18 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
 	const logInStore = useLogInStore();
+	const queryStore = useQueryStore();
 	logInStore.checkLogInStatus();
 	// to and from are both route objects. must call `next`.
 	if (to.meta.requiresAuth && logInStore.logInStatus == false) {
-		return { name: 'LogIn' };
+		console.log(to.fullPath);
+
+		queryStore.setRouteQuery(to.fullPath);
+
+		return {
+			path: '/LogIn',
+			query: { redirect: to.fullPath },
+		};
 	}
 });
 export default router;

@@ -1,15 +1,20 @@
 <script setup lang="ts">
 	import { RouterLink } from 'vue-router';
 	import axios from 'axios';
-	import { onMounted, ref, reactive, watch, computed } from 'vue';
+	import { ref, reactive, watch } from 'vue';
 	import { useLogInStore } from '@/stores/LogInStore';
 	import LogOut from '@/components/LogOut.vue';
 	import router from '@/router';
-
+	import { useQueryStore } from '@/stores/QueryStore';
+	import { storeToRefs } from 'pinia';
 	type user = { email: string; password: string };
 
-	const logInStore = useLogInStore();
+	// const route = useRoute();
+	const queryStore = useQueryStore();
+	const { currentRouteQuery } = storeToRefs(queryStore);
+	const routeName = ref(currentRouteQuery);
 
+	const logInStore = useLogInStore();
 	const userLogIn = reactive<user>({ email: '', password: '' });
 	const showPass = ref<boolean>(false);
 	const passType = ref<string>('password');
@@ -29,23 +34,14 @@
 			logInStore.checkLogInStatus();
 			await alert('Success!!');
 			await console.log(areYouLoggedIn.value);
-			await router.push({ name: 'home' });
+			await router.push({
+				path: routeName.value,
+			});
 		} catch (error) {
 			console.log(error);
 			alert('error occured');
 		}
 	}
-	// slander
-	async function getSlander() {
-		const lue = ref(
-			await axios.get('https://sample-mern-backend.vercel.app/api/todos')
-		);
-		await console.log(lue.value);
-	}
-
-	onMounted(async () => {
-		getSlander();
-	});
 
 	watch(showPass, () => {
 		showPass.value == false
@@ -68,4 +64,5 @@
 	<label for="showPass">Show Password</label>
 
 	<div v-if="logInStore.logInStatus == true"><LogOut></LogOut></div>
+	<p>tite {{ currentRouteQuery }}</p>
 </template>

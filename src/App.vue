@@ -21,7 +21,7 @@
 		<RouterLink to="/Register">Register &nbsp;</RouterLink>
 		<RouterLink to="/Create">Create User &nbsp;</RouterLink>
 	</nav>
-	<RouterView />
+	<router-view></router-view>
 	<GoBack></GoBack>
 </template>
 
