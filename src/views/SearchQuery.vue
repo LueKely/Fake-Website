@@ -18,12 +18,15 @@
 
 			await fetchStore.getData(index + 1);
 			await fetchStore.fetchedId?.forEach((element) => {
-				if (element.first_name.includes(queryProp.value || 'none')) {
+				if (
+					(element.first_name + ' ' + element.last_name).includes(
+						queryProp.value || 'none'
+					)
+				) {
 					queryResults.value.push(element);
 				}
 			});
 		}
-		await console.log(queryResults.value);
 	}
 	onMounted(async () => {
 		await searchingResults();
