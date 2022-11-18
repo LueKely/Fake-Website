@@ -7,18 +7,21 @@
 	import router from '@/router';
 	import { useQueryStore } from '@/stores/QueryStore';
 	import { storeToRefs } from 'pinia';
+
 	type user = { email: string; password: string };
 
-	// const route = useRoute();
+	// route
 	const queryStore = useQueryStore();
 	const { currentRouteQuery } = storeToRefs(queryStore);
 	const routeName = ref(currentRouteQuery);
 
+	// Login details
 	const logInStore = useLogInStore();
 	const userLogIn = reactive<user>({ email: '', password: '' });
 	const showPass = ref<boolean>(false);
 	const passType = ref<string>('password');
 
+	// sending request
 	async function userLogInReq() {
 		await alert(userLogIn.email + ' ' + userLogIn.password);
 
