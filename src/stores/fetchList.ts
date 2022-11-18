@@ -6,9 +6,9 @@ import type { PersonInfo } from '@/stores/types';
 export const useFetchData = defineStore('fetchPages', () => {
 	const dataValue = ref<any>({});
 	const fetchedId = ref<PersonInfo[]>();
-	async function getData(id: number) {
+	async function getData(page: number) {
 		const fetchedData = ref(
-			await axios.get(`https://reqres.in/api/users?page=${id}`)
+			await axios.get(`https://reqres.in/api/users?page=${page}`)
 		);
 
 		dataValue.value = await { ...fetchedData.value };

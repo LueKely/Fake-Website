@@ -4,7 +4,7 @@
 	const search = ref<string>('');
 
 	function submitSearchQuery() {
-		router.push({ path: '/PageView/Search', query: { result: search.value } });
+		router.push({ path: '/Search', query: { result: search.value } });
 	}
 </script>
 

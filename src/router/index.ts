@@ -39,12 +39,12 @@ const router = createRouter({
 							};
 					},
 				},
-				{
-					path: 'Search',
-					name: 'Search',
-					component: () => import('../views/SearchQuery.vue'),
-				},
 			],
+		},
+		{
+			path: '/Search',
+			name: 'Search',
+			component: () => import('../views/SearchQuery.vue'),
 		},
 		{
 			path: '/LogIn',
