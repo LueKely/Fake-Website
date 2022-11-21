@@ -3,9 +3,11 @@
 <template>
 	<div class="flex w-screen h-screen">
 		<!-- Flavour Text -->
-		<div class="bg-neutral-100 w-1/2 p-4 flex flex-col items-center">
-			<div class="flex flex-col items-start mt-5">
-				<h1 class="text-5xl font-bold">Welcome To Fake Website</h1>
+		<div class="bg-neutral-100 w-1/2 py-4 px-10 flex flex-col items-center">
+			<div class="flex flex-col items-start mt-20">
+				<h1 class="text-5xl font-bold">
+					Welcome To <span class="text-violet-500 font-bold">Fake Website</span>
+				</h1>
 
 				<p class="text-base w-4/5 font-light mt-5 ml-2">
 					A Website Which Is Fake. You can Post, Get, Patch and other stuff you
