@@ -1,11 +1,13 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div class="flex w-screen h-screen">
+	<div class="flex w-full h-screen">
 		<!-- Flavour Text -->
-		<div class="bg-neutral-100 w-1/2 py-4 px-10 flex flex-col items-center">
+		<div
+			class="bg-neutral-100 w-2/5 h-9/12 py-4 px-10 flex flex-col items-center"
+		>
 			<div class="flex flex-col items-start mt-20">
-				<h1 class="text-5xl font-bold">
+				<h1 class="text-7xl font-bold">
 					Welcome To <span class="text-violet-500 font-bold">Fake Website</span>
 				</h1>
 
@@ -16,7 +18,7 @@
 				</p>
 				<div>
 					<button
-						class="mt-5 ml-2 font-base duration-100 bg-violet-500 font-bold text-slate-50 w-28 h-10 rounded-full transition ease-in hover:bg-slate-50 hover:text-violet-500 hover:border-2 hover:border-violet-500 active:scale-90"
+						class="mt-5 ml-2 font-base duration-100 bg-violet-500 font-bold text-slate-50 w-28 h-10 rounded-full transition ease-in hover:bg-neutral-100 hover:text-violet-500 hover:border-2 hover:border-violet-500 active:scale-90"
 					>
 						Start a Tour
 					</button>
@@ -24,6 +26,10 @@
 			</div>
 		</div>
 		<!-- Picture -->
-		<div class="w-1/2 bg-neutral-700"></div>
+
+		<div class="w-3/5 h-9/12 bg-WaveColor flex m-0">
+			<!-- svg -->
+			<div class="h-full w-2/5 bg-wave bg-no-repeat bg-cover"></div>
+		</div>
 	</div>
 </template>
