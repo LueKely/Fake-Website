@@ -16,16 +16,49 @@
 	<div
 		class="w-full h-24 p-4 bg-neutral-100 border-b-4 border-violet-500 flex items-center"
 	>
-		<nav class="font-bold text-lg flex">
+		<div>
 			<RouterLink class="text-violet-500 font-bold text-xl" to="/"
-				>FAKE WEBSITE &nbsp;</RouterLink
+				>FAKE WEBSITE
+			</RouterLink>
+		</div>
+
+		<nav
+			class="font-bold text-lg flex items-center justify-between w-[30vw] mr-auto ml-[5rem]"
+		>
+			<RouterLink
+				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
+				to="/"
+				>Home</RouterLink
 			>
-			<RouterLink to="/">Home &nbsp;</RouterLink>
-			<RouterLink to="/about">About &nbsp;</RouterLink>
-			<RouterLink to="/PageView/Page/1">View Page &nbsp;</RouterLink>
-			<RouterLink to="/LogIn">Log in &nbsp;</RouterLink>
-			<RouterLink to="/Register">Register &nbsp;</RouterLink>
-			<RouterLink to="/Create">Create User &nbsp;</RouterLink>
+			<RouterLink
+				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
+				to="/about"
+				>About
+			</RouterLink>
+			<RouterLink
+				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
+				to="/PageView/Page/1"
+				>View Page
+			</RouterLink>
+
+			<RouterLink
+				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
+				to="/Create"
+				>Create User
+			</RouterLink>
+		</nav>
+
+		<nav
+			class="w-[15vw] h-[7.5vh] m-0 font-bold text-lg flex border-violet-500 border-2 border-r-0 rounded-full items-center justify-between"
+		>
+			<RouterLink class="font-bold w-20 text-center" to="/LogIn"
+				>&nbsp; Log in</RouterLink
+			>
+			<RouterLink
+				class="font-bold w-28 text-center bg-WaveColor bg-violet-500 text-neutral-50 rounded-full p-2 border-violet-500"
+				to="/Register"
+				>Register
+			</RouterLink>
 		</nav>
 	</div>
 
