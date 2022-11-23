@@ -3,6 +3,7 @@
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
 	import GoBack from './components/GoBack.vue';
+	import SearchComponent from './components/SearchComponent.vue';
 
 	const count = useCounterStore();
 	const test = people();
@@ -50,8 +51,12 @@
 			</RouterLink>
 		</nav>
 
+		<div class="m-auto">
+			<SearchComponent></SearchComponent>
+		</div>
+
 		<nav
-			class="w-[12vw] h-[50px] pl-2 m-0 font-bold text-lg flex border-violet-500 border-[1px] border-r-0 rounded-full items-center justify-between"
+			class="w-[12vw] min-w-[250px] h-[50px] pl-2 m-0 font-bold text-lg flex border-violet-500 border-[1px] border-r-0 rounded-full items-center justify-between"
 		>
 			<RouterLink
 				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"

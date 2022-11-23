@@ -31,8 +31,10 @@
 		<div
 			class="w-3/5 h-9/12 bg-WaveColor bg-violet-500 flex m-0 bg-right-bottom bg-origin-border"
 		>
-			<!-- svg -->
-			<div class="h-full w-5/12 bg-wave bg-no-repeat bg-cover"></div>
+			<!-- svg  -->
+			<div
+				class="h-full min-w-[40%] max-w-5/12 bg-wave bg-no-repeat bg-cover"
+			></div>
 		</div>
 	</div>
 </template>
