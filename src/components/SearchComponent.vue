@@ -9,7 +9,8 @@
 </script>
 
 <template>
-	<h1>This is the search</h1>
-	<input type="text" v-model="search" placeholder="Search" />
-	<button @click="submitSearchQuery">Submit</button>
+	<div class="flex w-[15vw] bg-slate-500">
+		<input type="text" v-model="search" placeholder="Search" />
+		<button @click="submitSearchQuery">Submit</button>
+	</div>
 </template>

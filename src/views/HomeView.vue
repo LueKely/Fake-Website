@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div class="flex w-full h-screen border-b-4 border-violet-500">
+	<div class="flex w-full h-screen border-b-[1px] border-violet-500">
 		<!-- Flavour Text -->
 		<div
 			class="bg-neutral-100 w-2/5 h-9/12 py-4 px-10 flex flex-col items-center"
@@ -19,6 +19,7 @@
 				<div>
 					<button
 						class="mt-6 ml-3 pb-1 font-base duration-100 bg-violet-500 font-bold text-slate-50 w-36 h-14 text-xl text-center rounded-full transition ease-in hover:bg-neutral-100 hover:text-violet-500 hover:border-2 hover:border-violet-500 active:scale-90"
+						@click="$router.push('/about')"
 					>
 						Start a Tour
 					</button>

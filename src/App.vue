@@ -14,11 +14,13 @@
 
 <template>
 	<div
-		class="w-full h-24 p-4 bg-neutral-100 border-b-4 border-violet-500 flex items-center"
+		class="w-full h-24 p-4 bg-neutral-100 border-b-[1px] border-violet-500 flex items-center"
 	>
 		<div>
-			<RouterLink class="text-violet-500 font-bold text-xl" to="/"
-				>FAKE WEBSITE
+			<RouterLink to="/"
+				><div class="text-violet-500 font-bold text-3xl text-center">
+					FAKE WEBSITE
+				</div>
 			</RouterLink>
 		</div>
 
@@ -49,15 +51,25 @@
 		</nav>
 
 		<nav
-			class="w-[15vw] h-[7.5vh] m-0 font-bold text-lg flex border-violet-500 border-2 border-r-0 rounded-full items-center justify-between"
+			class="w-[12vw] h-[50px] pl-2 m-0 font-bold text-lg flex border-violet-500 border-[1px] border-r-0 rounded-full items-center justify-between"
 		>
-			<RouterLink class="font-bold w-20 text-center" to="/LogIn"
+			<RouterLink
+				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
+				to="/LogIn"
 				>&nbsp; Log in</RouterLink
 			>
 			<RouterLink
-				class="font-bold w-28 text-center bg-WaveColor bg-violet-500 text-neutral-50 rounded-full p-2 border-violet-500"
+				class="w-36 h-full bg-WaveColor bg-violet-500 rounded-full p-2 border-violet-500 overflow-hidden"
 				to="/Register"
-				>Register
+			>
+				<div
+					class="absolute top-0 right-0 w-full h-full z-0 hover:bg-slate-600 hover:opacity-10 transition-all ease-in-out"
+				></div>
+				<p
+					class="font-bold text-center text-neutral-50 z-1 pointer-events-none"
+				>
+					Register
+				</p>
 			</RouterLink>
 		</nav>
 	</div>

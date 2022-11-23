@@ -23,6 +23,7 @@
 
 ## Front end
 
+[] Search bar for the navbar
 [] night mode
 [X] pagination
 [] scrolling gaming OY WHAT DOES DIS MEAN HU?
