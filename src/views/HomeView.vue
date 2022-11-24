@@ -6,7 +6,7 @@
 		<div
 			class="bg-neutral-100 w-2/5 h-9/12 py-4 px-10 flex flex-col items-center"
 		>
-			<div class="flex flex-col text-gray-900 items-start mt-20">
+			<div class="flex flex-col text-gray-900 items-start mt-5">
 				<h1 class="text-8xl font-bold">
 					Welcome To <span class="text-violet-500 font-bold">Fake Website</span>
 				</h1>

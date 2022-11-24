@@ -11,5 +11,10 @@
 	}
 </script>
 <template>
-	<button @click="logOutUser">LogOut</button>
+	<button
+		@click="logOutUser"
+		class="font-sans font-light text-base text-violet-500 hover:font-bold transition-all ease-in-out text-center"
+	>
+		Log Out
+	</button>
 </template>
