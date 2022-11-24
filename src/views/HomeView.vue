@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-	<div class="flex w-full h-screen border-b-[1px] border-violet-500">
+	<div class="flex w-full h-[90vh] border-b-[1px] border-violet-500">
 		<!-- Flavour Text -->
 		<div
 			class="bg-neutral-100 w-2/5 h-9/12 py-4 px-10 flex flex-col items-center"

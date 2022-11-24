@@ -15,7 +15,7 @@
 
 <template>
 	<div
-		class="w-full h-24 p-4 bg-neutral-100 border-b-[1px] border-violet-500 flex items-center"
+		class="w-full h-[10vh] p-4 bg-neutral-100 border-b-[1px] border-violet-500 flex items-center"
 	>
 		<div>
 			<RouterLink to="/"
@@ -56,7 +56,7 @@
 		</div>
 
 		<nav
-			class="w-[12vw] min-w-[250px] h-[50px] pl-2 m-0 font-bold text-lg flex border-violet-500 border-[1px] border-r-0 rounded-full items-center justify-between"
+			class="w-[230px] h-[40px] pl-2 m-0 font-bold text-lg flex border-violet-500 border-[1px] border-r-0 rounded-full items-center justify-between"
 		>
 			<RouterLink
 				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
@@ -64,7 +64,7 @@
 				>&nbsp; Log in</RouterLink
 			>
 			<RouterLink
-				class="w-36 h-full bg-WaveColor bg-violet-500 rounded-full p-2 border-violet-500 overflow-hidden"
+				class="w-[60%] h-full bg-WaveColor bg-violet-500 rounded-full p-2 border-violet-500 overflow-hidden flex items-center justify-center"
 				to="/Register"
 			>
 				<div
@@ -80,7 +80,7 @@
 	</div>
 
 	<router-view></router-view>
-	<GoBack></GoBack>
+	<!-- <GoBack></GoBack> -->
 </template>
 
 <style scoped></style>
