@@ -59,12 +59,15 @@
 		<div
 			class="w-[40%] h-full bg-neutral-100 flex items-center justify-center p-[30px]"
 		>
-			<div class="w-full h-full shadow-lg flex flex-col p-11">
-				<div class="mt-2">
-					<h1 class="text-xl text-violet-500 font-sans font-bold">Log In</h1>
+			<div class="w-[30vw] h-[60vh] shadow-lg flex flex-col p-11 my-auto">
+				<div class="mt-2 mx-auto w-[20vw] mb-[2vh]">
+					<h1 class="text-4xl text-violet-500 font-sans font-bold">Log In</h1>
+					<p class="font-sans font-light text-base mt-2 text-neutral-500">
+						Please enter your details
+					</p>
 				</div>
 				<!-- username -->
-				<div class="mb-2">
+				<div class="mb-2 mx-auto">
 					<div class="my-2">
 						<h1 class="text-neutral-500 font-sans">Username</h1>
 					</div>
@@ -73,12 +76,12 @@
 						type="text"
 						v-model="userLogIn.email"
 						placeholder="eve.holt@reqres.in"
-						class="w-full h-10 rounded-full border-neutral-500 border-[1px] focus:outline-none bg-neutral-100 placeholder:font-sans pl-2"
+						class="w-[20vw] h-10 rounded-full border-neutral-500 border-[1px] focus:outline-none bg-neutral-100 placeholder:font-sans pl-2"
 					/>
 				</div>
 
 				<!-- password -->
-				<div class="mb-2">
+				<div class="mb-2 mx-auto">
 					<div class="my-2">
 						<h1 class="text-neutral-500 font-sans">Password</h1>
 					</div>
@@ -86,22 +89,24 @@
 						:type="passType"
 						v-model="userLogIn.password"
 						placeholder="cityslicka"
-						class="w-full h-10 rounded-full border-neutral-500 border-[1px] focus:outline-none bg-neutral-100 placeholder:font-sans pl-2"
+						class="w-[20vw] h-10 rounded-full border-neutral-500 border-[1px] focus:outline-none bg-neutral-100 placeholder:font-sans pl-2"
 					/>
+					<div class="mt-2">
+						<label for="showPass" class="mr-2 font-sans text-neutral-500"
+							>Show Password</label
+						>
+						<input type="checkbox" id="showPass" v-model="showPass" />
+					</div>
 				</div>
 				<!-- show password -->
-				<div>
-					<label for="showPass" class="mr-2 font-sans">Show Password</label>
-					<input type="checkbox" id="showPass" v-model="showPass" />
-				</div>
 
 				<button
 					@click="userLogInReq"
-					class="h-10 w-full my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out"
+					class="mx-auto h-10 w-[20vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out"
 				>
 					Log In
 				</button>
-				<div class="flex">
+				<div class="w-[20vw] mx-auto flex">
 					<p class="font-sans font-light text-base">Don't have an account?</p>
 					<router-link
 						class="font-sans font-light text-base text-violet-500 hover:font-bold transition-all ease-in-out ml-1"
@@ -111,7 +116,10 @@
 					>
 				</div>
 
-				<div class="w-fit h-fit" v-if="logInStore.logInStatus == true">
+				<div
+					class="w-[20vw] mx-auto h-fit"
+					v-if="logInStore.logInStatus == true"
+				>
 					<LogOut></LogOut>
 				</div>
 				<!-- <p>tite {{ currentRouteQuery }}</p> -->
