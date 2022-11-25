@@ -46,26 +46,33 @@
 </script>
 
 <template>
-	<h1>register nigger</h1>
-	<input type="text" v-model="newUser.userName" placeholder="Insert username" />
-	<input
-		type="text"
-		v-model="newUser.userEmail"
-		placeholder="Insert user Email"
-	/>
-	<input
-		:type="passType"
-		v-model="newUser.userPassword"
-		placeholder="Insert password"
-	/>
-	<input type="password" v-model="checkPass" placeholder="confirm password" />
-	<button @click="registerNewUser">Register!!</button>
-	<div>
-		<p>Already have a password?</p>
-		<router-link to="/Login">Log in</router-link>
-	</div>
+	<div class="w-screen h-[90vh] bg-neutral-100">
+		<div></div>
+		<h1>register nigger</h1>
+		<input
+			type="text"
+			v-model="newUser.userName"
+			placeholder="Insert username"
+		/>
+		<input
+			type="text"
+			v-model="newUser.userEmail"
+			placeholder="Insert user Email"
+		/>
+		<input
+			:type="passType"
+			v-model="newUser.userPassword"
+			placeholder="Insert password"
+		/>
+		<input type="password" v-model="checkPass" placeholder="confirm password" />
+		<button @click="registerNewUser">Register!!</button>
+		<div>
+			<p>Already have a password?</p>
+			<router-link to="/Login">Log in</router-link>
+		</div>
 
-	<input type="checkbox" id="showPass" v-model="showPass" />
-	<label for="showPass">Show Password</label>
-	<div v-show="isPassword">Password does not match</div>
+		<input type="checkbox" id="showPass" v-model="showPass" />
+		<label for="showPass">Show Password</label>
+		<div v-show="isPassword">Password does not match</div>
+	</div>
 </template>
