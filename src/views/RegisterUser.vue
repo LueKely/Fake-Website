@@ -46,33 +46,60 @@
 </script>
 
 <template>
-	<div class="w-screen h-[90vh] bg-neutral-100">
-		<div></div>
-		<h1>register nigger</h1>
-		<input
-			type="text"
-			v-model="newUser.userName"
-			placeholder="Insert username"
-		/>
-		<input
-			type="text"
-			v-model="newUser.userEmail"
-			placeholder="Insert user Email"
-		/>
-		<input
-			:type="passType"
-			v-model="newUser.userPassword"
-			placeholder="Insert password"
-		/>
-		<input type="password" v-model="checkPass" placeholder="confirm password" />
-		<button @click="registerNewUser">Register!!</button>
-		<div>
-			<p>Already have a password?</p>
-			<router-link to="/Login">Log in</router-link>
-		</div>
+	<div class="w-screen h-[90vh] bg-neutral-100 flex">
+		<!--register -->
+		<div class="w-[50%] h-full bg-slate-400"></div>
 
-		<input type="checkbox" id="showPass" v-model="showPass" />
-		<label for="showPass">Show Password</label>
-		<div v-show="isPassword">Password does not match</div>
+		<div class="w-[50%] h-full">
+			<div>
+				<h1>FAKE WEBSITE</h1>
+			</div>
+			<div>
+				<h1>Register</h1>
+				<p>Hello new user</p>
+			</div>
+
+			<div>
+				<h1>Insert User Name</h1>
+				<input type="text" v-model="newUser.userName" placeholder="username" />
+			</div>
+
+			<div>
+				<h1>Insert User Email</h1>
+				<input type="text" v-model="newUser.userEmail" placeholder="Email" />
+			</div>
+
+			<div>
+				<div>
+					<h1>Insert Password</h1>
+					<input
+						:type="passType"
+						v-model="newUser.userPassword"
+						placeholder="password"
+					/>
+				</div>
+
+				<div>
+					<h1>Retype Password</h1>
+					<input
+						type="password"
+						v-model="checkPass"
+						placeholder="confirm password"
+					/>
+				</div>
+			</div>
+
+			<div>
+				<input type="checkbox" id="showPass" v-model="showPass" />
+				<label for="showPass">Show Password</label>
+			</div>
+			<button @click="registerNewUser">Register!!</button>
+			<div>
+				<p>Already have an Account?</p>
+				<router-link to="/Login">Log in</router-link>
+			</div>
+
+			<div v-show="isPassword">*Password does not match*</div>
+		</div>
 	</div>
 </template>
