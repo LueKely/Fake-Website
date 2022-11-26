@@ -48,7 +48,11 @@
 <template>
 	<div class="w-screen h-[90vh] bg-neutral-100 flex">
 		<!--register -->
-		<div class="w-[50%] h-full bg-slate-400"></div>
+		<div class="w-[50%] h-full flex items-center justify-center">
+			<div
+				class="h-[80%] w-[80%] bg-SignUp bg-no-repeat bg-contain mt-5 mr-10"
+			></div>
+		</div>
 
 		<div class="w-[50%] h-full">
 			<div>
