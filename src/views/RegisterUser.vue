@@ -48,62 +48,68 @@
 <template>
 	<div class="w-screen h-[90vh] bg-neutral-100 flex">
 		<!--register -->
-		<div class="w-[50%] h-full flex items-center justify-center">
-			<div
-				class="h-[80%] w-[80%] bg-SignUp bg-no-repeat bg-contain mt-5 mr-10"
-			></div>
+		<div
+			class="w-[50%] h-full flex items-center justify-center border-r-[1px] border-violet-500"
+		>
+			<div class="h-full w-full bg-SignUp bg-no-repeat bg-cover"></div>
 		</div>
 
 		<div class="w-[50%] h-full">
-			<div>
-				<h1>FAKE WEBSITE</h1>
-			</div>
-			<div>
-				<h1>Register</h1>
-				<p>Hello new user</p>
-			</div>
-
-			<div>
-				<h1>Insert User Name</h1>
-				<input type="text" v-model="newUser.userName" placeholder="username" />
-			</div>
-
-			<div>
-				<h1>Insert User Email</h1>
-				<input type="text" v-model="newUser.userEmail" placeholder="Email" />
-			</div>
-
-			<div>
+			<div class="w-full h-full">
 				<div>
-					<h1>Insert Password</h1>
+					<h1>FAKE WEBSITE</h1>
+				</div>
+				<div>
+					<h1>Register</h1>
+					<p>Hello new user</p>
+				</div>
+
+				<div>
+					<h1>Insert User Name</h1>
 					<input
-						:type="passType"
-						v-model="newUser.userPassword"
-						placeholder="password"
+						type="text"
+						v-model="newUser.userName"
+						placeholder="username"
 					/>
 				</div>
 
 				<div>
-					<h1>Retype Password</h1>
-					<input
-						type="password"
-						v-model="checkPass"
-						placeholder="confirm password"
-					/>
+					<h1>Insert User Email</h1>
+					<input type="text" v-model="newUser.userEmail" placeholder="Email" />
 				</div>
-			</div>
 
-			<div>
-				<input type="checkbox" id="showPass" v-model="showPass" />
-				<label for="showPass">Show Password</label>
-			</div>
-			<button @click="registerNewUser">Register!!</button>
-			<div>
-				<p>Already have an Account?</p>
-				<router-link to="/Login">Log in</router-link>
-			</div>
+				<div>
+					<div>
+						<h1>Insert Password</h1>
+						<input
+							:type="passType"
+							v-model="newUser.userPassword"
+							placeholder="password"
+						/>
+					</div>
 
-			<div v-show="isPassword">*Password does not match*</div>
+					<div>
+						<h1>Retype Password</h1>
+						<input
+							type="password"
+							v-model="checkPass"
+							placeholder="confirm password"
+						/>
+					</div>
+				</div>
+
+				<div>
+					<input type="checkbox" id="showPass" v-model="showPass" />
+					<label for="showPass">Show Password</label>
+				</div>
+				<button @click="registerNewUser">Register!!</button>
+				<div>
+					<p>Already have an Account?</p>
+					<router-link to="/Login">Log in</router-link>
+				</div>
+
+				<div v-show="isPassword">*Password does not match*</div>
+			</div>
 		</div>
 	</div>
 </template>
