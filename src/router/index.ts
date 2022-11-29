@@ -43,6 +43,7 @@ const router = createRouter({
 		{
 			path: '/Search',
 			name: 'Search',
+			meta: { requiresAuth: true },
 			component: () => import('../views/SearchQuery.vue'),
 		},
 		{
