@@ -10,6 +10,7 @@ module.exports = {
 				tite: '#f2e8e5',
 				BannerLogIn: "url('./src/assets/Log-in.webp')",
 				SignUp: "url('./src/assets/Clarence.svg')",
+				CreateWaves: "url('./src/assets/CreateWaves.svg')",
 			},
 		},
 	},
