@@ -32,41 +32,69 @@
 	}
 </script>
 <template>
-	<div class="w-screen h-[90vh] bgwave flex items-center justify-center">
+	<div
+		class="w-screen h-[90vh] bgwave flex items-center justify-center bg-WaveColor bg-violet-500"
+	>
 		<div
-			class="w-[40vw] h-[80vh] m-auto bg-neutral-100 shadow-xl bg-opacity-30 backdrop-blur-sm border-neutral-100 border-[1px] rounded-md border-opacity-50"
+			class="w-[40vw] h-[50vh] m-auto bg-neutral-100 drop-shadow-xl bg-opacity-10 backdrop-blur-sm rounded-md p-10"
 		>
-			<h1>Create User</h1>
-			<div>
-				<div>
-					<label>Tite</label>
+			<h1 class="font-sans text-neutral-100 font-bold text-5xl">Create User</h1>
+			<div class="h-full w-full flex items-center justify-center">
+				<div class="flex flex-col items-center justify-center">
+					<div class="flex items-center justify-center my-2">
+						<div class="w-[12vw] h-14 mr-[1vw]">
+							<input
+								class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+								type="text"
+								v-model="newUser.firstName"
+								placeholder="First Name"
+							/>
+						</div>
+						<div class="w-[12vw] h-14">
+							<input
+								type="text"
+								class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+								v-model="newUser.lastName"
+								placeholder="Last Name"
+							/>
+						</div>
+					</div>
+					<div class="w-[25vw] h-14 my-2">
+						<input
+							type="text"
+							class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+							v-model="newUser.email"
+							placeholder="Email"
+						/>
+					</div>
 
-					<input
-						type="text"
-						v-model="newUser.firstName"
-						placeholder="first name"
-					/>
+					<div class="w-[25vw] h-14 my-2">
+						<input
+							class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+							type="text"
+							v-model="newUser.avatar"
+							placeholder="Avatar URL"
+						/>
+					</div>
+					<div
+						class="w-[21vw] h-12 flex items-end justify-between mx-auto mt-6"
+					>
+						<button
+							@click="createNewUser"
+							class="w-[10vw] h-12 drop-shadow-lg text-xl bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans font-bold hover:text-violet-500 hover:bg-opacity-60 transition-all ease-in-out"
+						>
+							Submit
+						</button>
+						<button
+							class="w-[10vw] h-12 drop-shadow-lg text-xl bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans font-bold hover:text-violet-500 hover:bg-opacity-60 transition-all ease-in-out"
+							@click="clearInput"
+						>
+							Clear
+						</button>
+					</div>
 				</div>
-
-				<input type="text" v-model="newUser.lastName" placeholder="last name" />
-				<input type="text" v-model="newUser.email" placeholder="email" />
-				<input type="text" v-model="newUser.avatar" placeholder="Avatar URL" />
 			</div>
-			<button @click="createNewUser">Submit</button>
-			<button @click="clearInput">Clear</button>
 		</div>
 	</div>
 </template>
-<style scoped>
-	.bgwave {
-		background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='70' height='8' patternTransform='scale(2) rotate(40)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(251, 95%, 92%, 1)'/><path d='M-.02 22c8.373 0 11.938-4.695 16.32-9.662C20.785 7.258 25.728 2 35 2c9.272 0 14.215 5.258 18.7 10.338C58.082 17.305 61.647 22 70.02 22M-.02 14.002C8.353 14 11.918 9.306 16.3 4.339 20.785-.742 25.728-6 35-6 44.272-6 49.215-.742 53.7 4.339c4.382 4.967 7.947 9.661 16.32 9.664M70 6.004c-8.373-.001-11.918-4.698-16.3-9.665C49.215-8.742 44.272-14 35-14c-9.272 0-14.215 5.258-18.7 10.339C11.918 1.306 8.353 6-.02 6.002'  stroke-width='0.5' stroke='hsla(258, 90%, 66%, 0.36)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
-	}
-	.bgBlur {
-		background: rgba(255, 255, 255, 0.1);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-		border-radius: 10px;
-		border: 1px solid rgba(255, 255, 255, 0.18);
-	}
-</style>
+<style scoped></style>
