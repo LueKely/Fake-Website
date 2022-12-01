@@ -36,9 +36,11 @@
 		class="w-screen h-[90vh] bgwave flex items-center justify-center bg-WaveColor bg-violet-500"
 	>
 		<div
-			class="w-[40vw] h-[50vh] m-auto bg-neutral-100 drop-shadow-xl bg-opacity-10 backdrop-blur-sm rounded-md p-10"
+			class="w-[40vw] max-h-[80vh] min-h-[50vh] m-auto bg-neutral-100 drop-shadow-xl bg-opacity-10 backdrop-blur-sm rounded-md p-9"
 		>
-			<h1 class="font-sans text-neutral-100 font-bold text-5xl">Create User</h1>
+			<h1 class="font-sans text-neutral-100 font-bold text-5xl mb-3">
+				Create User
+			</h1>
 			<div class="h-full w-full flex items-center justify-center">
 				<div class="flex flex-col items-center justify-center">
 					<div class="flex items-center justify-center my-2">
