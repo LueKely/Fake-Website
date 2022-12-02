@@ -21,10 +21,10 @@
 
 <template>
 	<div
-		class="w-[18vw] h-[35vh] bg-slate-100 m-10 rounded-md overflow-hidden relative"
+		class="w-[250px] h-[300px] bg-neutral-100 m-10 rounded-md overflow-hidden relative shadow-lg"
 	>
 		<div
-			class="w-[18vw] h-[40%] flex items-center justify-center bg-center bg-cover bg-no-repeat shadow-lg"
+			class="w-full h-[40%] flex items-center justify-center bg-center bg-cover bg-no-repeat shadow-lg"
 			:style="bgAvatar"
 		>
 			<div
@@ -33,21 +33,29 @@
 		</div>
 
 		<img
-			class="h-[100px] w-[100px] rounded-full absolute top-[23%] left-[35%] shadow-lg"
+			class="h-[100px] w-[100px] rounded-full absolute top-[23%] left-[30%] shadow-lg"
 			:src="props.fetchedPerson.avatar"
 			:alt="props.fetchedPerson.first_name"
 		/>
 
 		<!-- <h1>This is the {{ props.fetchedPerson }} info</h1> -->
-		<h1>
-			{{ props.fetchedPerson.first_name }} &nbsp;{{
-				props.fetchedPerson.last_name
-			}}
-		</h1>
-		<button @click="showDetails">More Details</button>
-		<div v-if="details == true">
-			<PersonalDetail :fetched-person="props.fetchedPerson"></PersonalDetail>
-			<button @click="hideDetails">Hide Details</button>
+		<div class="w-full h-[60%] flex flex-col items-center justify-start">
+			<div class="mt-14">
+				<h1 class="font-sans font-bold text-zinc-800 text-lg">
+					{{ props.fetchedPerson.first_name }} &nbsp;{{
+						props.fetchedPerson.last_name
+					}}
+				</h1>
+			</div>
+			<div>
+				<button @click="showDetails" class="font-sans font-light">
+					More Details
+				</button>
+			</div>
+			<div v-if="details == true">
+				<PersonalDetail :fetched-person="props.fetchedPerson"></PersonalDetail>
+				<button @click="hideDetails">Hide Details</button>
+			</div>
 		</div>
 	</div>
 </template>
