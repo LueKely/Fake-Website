@@ -21,7 +21,7 @@
 
 <template>
 	<div
-		class="w-[250px] h-[300px] bg-neutral-100 m-10 rounded-md overflow-hidden relative shadow-lg"
+		class="w-[250px] h-[300px] bg-neutral-100 mx-5 my-3 rounded-md overflow-hidden relative shadow-lg"
 	>
 		<div
 			class="w-full h-[40%] flex items-center justify-center bg-center bg-cover bg-no-repeat shadow-lg"

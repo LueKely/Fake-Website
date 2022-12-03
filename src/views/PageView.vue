@@ -18,19 +18,21 @@
 	});
 </script>
 <template>
-	<h1>View Page tite</h1>
-
-	<div v-if="logInStore.logInStatus == true"><router-view /></div>
-	<div v-else>
-		<p>Please log in here &nbsp;</p>
-		<router-link to="/LogIn">Login</router-link>
+	<!-- just so you know this is the main page for the pageview  -->
+	<div class="w-[full] h-[80vh]">
+		<router-view />
+		<div
+			class="w-[400px] h-[10vh] flex items-center justify-evenly mx-auto mt-auto transition-all ease-in-out"
+		>
+			<router-link
+				class="pagination w-7 h-7 font-sans text-zinc-800 font-bold text-lg text-center rounded-full flex items-center justify-center"
+				v-for="n in pageNumber"
+				:key="n"
+				:to="pageNumberUrl(n)"
+			>
+				{{ n }}</router-link
+			>
+		</div>
 	</div>
-	<router-link v-for="n in pageNumber" :key="n" :to="pageNumberUrl(n)">
-		{{ n }}&nbsp;</router-link
-	>
 </template>
-<style scoped>
-	.router-link-active {
-		color: red;
-	}
-</style>
+<style scoped></style>
