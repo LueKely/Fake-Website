@@ -48,14 +48,42 @@
 				</h1>
 			</div>
 			<div>
-				<button @click="showDetails" class="font-sans font-light">
+				<button
+					@click="showDetails"
+					class="font-sans font-light hover:font-bold transition-all ease-in-out"
+				>
 					More Details
 				</button>
 			</div>
-			<div v-if="details == true">
-				<PersonalDetail :fetched-person="props.fetchedPerson"></PersonalDetail>
-				<button @click="hideDetails">Hide Details</button>
-			</div>
+			<teleport to="#infoModal"
+				><div v-if="details == true">
+					<div
+						class="fixed w-screen h-screen z-10 flex items-center justify-center bg-gray-500 bg-opacity-30"
+					>
+						<div
+							class="relative w-[40vw] h-[40vh] bg-neutral-700 flex items-center justify-center"
+						>
+							<div
+								class="w-[30%] h-full bg-no-repeat bg-cover bg-center"
+								:style="bgAvatar"
+							>
+								<div class="w-full h-full backdrop-blur-md"></div>
+							</div>
+							<div class="w-[70%] h-full">
+								<button
+									class="self-end w-[100px] h-[50px]"
+									@click="hideDetails"
+								>
+									Hide Details
+								</button>
+								<PersonalDetail
+									:fetched-person="props.fetchedPerson"
+								></PersonalDetail>
+							</div>
+						</div>
+					</div>
+				</div>
+			</teleport>
 		</div>
 	</div>
 </template>
