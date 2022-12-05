@@ -5,7 +5,7 @@
 	const emit = defineEmits<{ (e: 'deleteModal', status: boolean): void }>();
 
 	function hideDeleteModal() {
-		emit('deleteModal', true);
+		emit('deleteModal', false);
 	}
 
 	async function deleteUser(prop: number) {

@@ -61,20 +61,38 @@
 						class="fixed w-screen h-screen z-10 flex items-center justify-center bg-gray-500 bg-opacity-30"
 					>
 						<div
-							class="relative w-[40vw] h-[40vh] bg-neutral-700 flex items-center justify-center"
+							class="relative w-[40vw] h-[40vh] bg-neutral-100 flex items-center justify-center overflow-hidden rounded-md"
 						>
 							<div
 								class="w-[30%] h-full bg-no-repeat bg-cover bg-center"
 								:style="bgAvatar"
 							>
-								<div class="w-full h-full backdrop-blur-md"></div>
-							</div>
-							<div class="w-[70%] h-full">
-								<button
-									class="self-end w-[100px] h-[50px]"
-									@click="hideDetails"
+								<div
+									class="w-full h-full backdrop-blur-md flex items-center justify-center"
 								>
-									Hide Details
+									<img
+										class="h-[100px] w-[100px] rounded-full shadow-lg"
+										:src="props.fetchedPerson.avatar"
+										:alt="props.fetchedPerson.first_name"
+									/>
+								</div>
+							</div>
+							<div class="w-[70%] h-full flex flex-col p-4">
+								<button class="self-end w-[30px] h-[30px]" @click="hideDetails">
+									<svg
+										class="w-6 h-6"
+										fill="none"
+										stroke="#262626"
+										viewBox="0 0 24 24"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M6 18L18 6M6 6l12 12"
+										></path>
+									</svg>
 								</button>
 								<PersonalDetail
 									:fetched-person="props.fetchedPerson"

@@ -22,30 +22,59 @@
 	const props = defineProps<{ fetchedPerson: PersonInfo }>();
 </script>
 <template>
-	<h1>DETAILS</h1>
-	<p>PROFILE:{{ props.fetchedPerson.avatar }}</p>
-	<p>
-		Full name: {{ props.fetchedPerson.first_name }}
-		{{ props.fetchedPerson.last_name }}
-	</p>
+	<div class="w-full h-full">
+		<h1 class="font-sans font-bold text-2xl h-[10%]">DETAILS</h1>
+		<div class="h-[70%] flex items-center justify-center">
+			<div>
+				<p class="font-sans text-lg">
+					<b class="font-bold">Image url:</b> {{ props.fetchedPerson.avatar }}
+				</p>
+				<p class="font-sans text-lg">
+					<b>Full name:</b> {{ props.fetchedPerson.first_name }}
+					{{ props.fetchedPerson.last_name }}
+				</p>
 
-	<p>Email: {{ props.fetchedPerson.email }}</p>
-	<p>ID:{{ props.fetchedPerson.id }}</p>
-	<button @click="showModal">Update</button>
-	<button @click="showModalDel">Delete</button>
+				<p class="font-sans text-lg">
+					<b>Email:</b> {{ props.fetchedPerson.email }}
+				</p>
+				<p class="font-sans text-lg">
+					<b>ID:&nbsp;</b>{{ props.fetchedPerson.id }}
+				</p>
+			</div>
+		</div>
 
-	<div v-if="modalStatus == true">
-		<UpdatePerson
-			:user="props.fetchedPerson"
-			@close-update="hideModal"
-		></UpdatePerson>
-	</div>
+		<!-- button -->
+		<div class="mx-auto w-[45%] h-[20%] flex items-center justify-between">
+			<button
+				class="w-28 h-10 rounded-full border-[1px] border-neutral-500 font-sans font-bold hover:bg-lime-500 hover:text-neutral-100 hover:border-lime-500 transition-all ease-in-out"
+				@click="showModal"
+			>
+				Update
+			</button>
+			<button
+				class="w-28 h-10 rounded-full border-[1px] border-neutral-500 font-sans font-bold hover:bg-red-600 hover:text-neutral-100 hover:border-red-600 transition-all ease-in-out"
+				@click="showModalDel"
+			>
+				Delete
+			</button>
+		</div>
 
-	<div v-if="delModalStatus == true">
-		<DeletePerson
-			:id="props.fetchedPerson.id"
-			@delete-modal="hideModalDel"
-		></DeletePerson>
+		<!-- teleport -->
+		<div>
+			<div v-if="modalStatus == true">
+				<UpdatePerson
+					:user="props.fetchedPerson"
+					@close-update="hideModal"
+				></UpdatePerson>
+			</div>
+
+			<div v-if="delModalStatus == true">
+				<DeletePerson
+					:id="props.fetchedPerson.id"
+					@delete-modal="hideModalDel"
+				></DeletePerson>
+			</div>
+		</div>
 	</div>
 </template>
 <style></style>
