@@ -24,7 +24,7 @@ const router = createRouter({
 			name: 'PageView',
 			meta: { requiresAuth: true },
 			component: () => import('../views/PageView.vue'),
-
+			redirect: '/PageView/Page/1',
 			children: [
 				{
 					path: 'Page/:id',

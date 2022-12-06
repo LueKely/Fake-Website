@@ -40,7 +40,7 @@
 			</RouterLink>
 			<RouterLink
 				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
-				to="/PageView/Page/1"
+				to="/PageView"
 				>View Page
 			</RouterLink>
 
