@@ -22,7 +22,7 @@
 	const props = defineProps<{ fetchedPerson: PersonInfo }>();
 </script>
 <template>
-	<div class="w-full h-full">
+	<div class="w-full h-full overflow-hidden">
 		<h1 class="font-sans font-bold text-2xl h-[10%]">DETAILS</h1>
 		<div class="h-[70%] flex items-center justify-center">
 			<div>
