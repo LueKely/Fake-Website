@@ -62,17 +62,21 @@
 		<!-- teleport -->
 		<div>
 			<div v-if="modalStatus == true">
-				<UpdatePerson
-					:user="props.fetchedPerson"
-					@close-update="hideModal"
-				></UpdatePerson>
+				<teleport to="#test">
+					<UpdatePerson
+						:user="props.fetchedPerson"
+						@close-update="hideModal"
+					></UpdatePerson
+				></teleport>
 			</div>
 
 			<div v-if="delModalStatus == true">
-				<DeletePerson
-					:id="props.fetchedPerson.id"
-					@delete-modal="hideModalDel"
-				></DeletePerson>
+				<Teleport to="#test">
+					<DeletePerson
+						:id="props.fetchedPerson.id"
+						@delete-modal="hideModalDel"
+					></DeletePerson
+				></Teleport>
 			</div>
 		</div>
 	</div>
