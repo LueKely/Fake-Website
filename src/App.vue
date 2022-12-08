@@ -2,8 +2,13 @@
 	import { RouterLink, RouterView } from 'vue-router';
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
-	import GoBack from './components/GoBack.vue';
+
 	import SearchComponent from './components/SearchComponent.vue';
+
+	import notificationPopUp from '@/components/notificationPopUp.vue';
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	import { watch } from 'vue';
+	import { storeToRefs } from 'pinia';
 
 	const count = useCounterStore();
 	const test = people();
@@ -11,6 +16,20 @@
 	console.log(test.sayHiName);
 
 	console.log(count.count);
+
+	// notification stuff
+	// destructuring? idk
+	const notificationStore = useNotificationStore();
+	const groupOfNotificationStore = notificationStore.groupOfNotifications;
+	const { notificationGroupLength } = storeToRefs(notificationStore);
+
+	watch(notificationGroupLength, () => {
+		if (notificationGroupLength.value != 0) {
+			notificationStore.notificationTimer();
+		} else {
+			notificationStore.stopDel();
+		}
+	});
 </script>
 
 <template>
@@ -81,6 +100,19 @@
 
 	<router-view></router-view>
 	<!-- <GoBack></GoBack> -->
+
+	<!-- this is were the notification goes -->
+	<div
+		class="w-screen h-screen fixed flex flex-col-reverse items-end justify-start z-50 top-0 left-0 pointer-events-none p-10"
+	>
+		<div
+			v-for="(notif, index) in groupOfNotificationStore"
+			:key="index"
+			class="my-2"
+		>
+			<notificationPopUp></notificationPopUp>
+		</div>
+	</div>
 </template>
 
 <style scoped></style>
