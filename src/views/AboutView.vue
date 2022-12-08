@@ -45,12 +45,11 @@
 		delete
 	</button>
 	<div
-		class="w-screen h-screen fixed flex items-end justify-end z-50 top-0 left-0 pointer-events-none p-10"
+		class="w-screen h-screen fixed flex flex-col-reverse items-end justify-end z-50 top-0 left-0 pointer-events-none p-10"
 	>
-		<notificationPopUp></notificationPopUp>
-	</div>
-	<div v-for="(notif, index) in groupOfNotificationStore" :key="index">
-		{{ index }}
+		<div v-for="(notif, index) in groupOfNotificationStore" :key="index">
+			<notificationPopUp></notificationPopUp>
+		</div>
 	</div>
 </template>
 

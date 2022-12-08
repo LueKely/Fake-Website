@@ -5,26 +5,29 @@ import { defineStore } from 'pinia';
 type notifyType = { messageType: number; messageProp: String };
 
 export const useNotificationStore = defineStore('notify', () => {
-	let lue: any = null;
+	let intervalId: any = null;
+	// init array of the notifications
 	const groupOfNotifications = ref<notifyType[]>([]);
 
+	// returns the length of the array
 	const notificationGroupLength = computed((): number => {
 		if (groupOfNotifications.value?.length != undefined) {
 			return groupOfNotifications.value?.length;
 		} else return 0;
 	});
 
+	// will check if notif is already running if not run it
 	function notificationTimer() {
-		if (!lue) {
-			lue = setInterval(() => {
+		if (!intervalId) {
+			intervalId = setInterval(() => {
 				groupOfNotifications.value.shift();
 			}, 2000);
 		}
 	}
 
 	function stopDel() {
-		clearInterval(lue);
-		lue = null;
+		clearInterval(intervalId);
+		intervalId = null;
 	}
 
 	const notifyArguments = reactive<notifyType>({
