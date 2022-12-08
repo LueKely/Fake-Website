@@ -3,6 +3,7 @@
 	import type { PersonInfo } from '@/stores/types';
 	import UpdatePerson from './UpdatePerson.vue';
 	import DeletePerson from './DeletePerson.vue';
+
 	const modalStatus = ref(false);
 	const delModalStatus = ref(false);
 

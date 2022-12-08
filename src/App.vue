@@ -110,7 +110,7 @@
 			:key="index"
 			class="my-2"
 		>
-			<notificationPopUp></notificationPopUp>
+			<notificationPopUp>{{ notif.messageProp }}</notificationPopUp>
 		</div>
 	</div>
 </template>

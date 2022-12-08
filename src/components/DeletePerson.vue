@@ -1,5 +1,7 @@
 <script setup lang="ts">
 	import axios from 'axios';
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	const notificationStore = useNotificationStore();
 
 	const props = defineProps<{ id: number }>();
 	const emit = defineEmits<{ (e: 'deleteModal', status: boolean): void }>();
@@ -10,9 +12,13 @@
 
 	async function deleteUser(prop: number) {
 		try {
-			axios.delete(`https://reqres.in/api/users/${prop}`);
-			alert('user deleted');
-			hideDeleteModal();
+			await axios.delete(`https://reqres.in/api/users/${prop}`);
+
+			await hideDeleteModal();
+			await notificationStore.setNotifyArgument({
+				messageType: 0,
+				messageProp: 'User Deleted (not really)',
+			});
 		} catch (error) {
 			alert('error occured');
 			console.log(error);

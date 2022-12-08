@@ -7,6 +7,8 @@
 	import router from '@/router';
 	import { useQueryStore } from '@/stores/QueryStore';
 	import { storeToRefs } from 'pinia';
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	const notificationStore = useNotificationStore();
 
 	type user = { email: string; password: string };
 
@@ -23,8 +25,6 @@
 
 	// sending request
 	async function userLogInReq() {
-		await alert(userLogIn.email + ' ' + userLogIn.password);
-
 		try {
 			const areYouLoggedIn = ref(
 				await axios.post('https://reqres.in/api/login', {
@@ -35,14 +35,20 @@
 
 			await sessionStorage.setItem('name', 'User');
 			logInStore.checkLogInStatus();
-			await alert('Success!!');
+			await notificationStore.setNotifyArgument({
+				messageType: 1,
+				messageProp: 'Login Successful',
+			});
 			await console.log(areYouLoggedIn.value);
 			await router.push({
 				path: routeName.value,
 			});
 		} catch (error) {
 			console.log(error);
-			alert('error occured');
+			await notificationStore.setNotifyArgument({
+				messageType: 0,
+				messageProp: 'Login Failed',
+			});
 		}
 	}
 

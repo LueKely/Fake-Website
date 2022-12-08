@@ -2,7 +2,8 @@
 	import axios from 'axios';
 	import { reactive, ref, computed, watch } from 'vue';
 	import { RouterLink } from 'vue-router';
-
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	const notificationStore = useNotificationStore();
 	type registerUser = {
 		userName: string;
 		userEmail: string;
@@ -32,9 +33,16 @@
 			);
 			console.log(createPostReq.value);
 
-			await alert('success!!');
+			await notificationStore.setNotifyArgument({
+				messageType: 1,
+				messageProp: 'Creation Successful',
+			});
 		} catch (error) {
-			alert('error');
+			console.log('error');
+			await notificationStore.setNotifyArgument({
+				messageType: 0,
+				messageProp: 'Creation Failed',
+			});
 		}
 	}
 

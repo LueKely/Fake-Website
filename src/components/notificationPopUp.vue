@@ -25,7 +25,7 @@
 			</svg>
 		</div>
 		<div class="h-full w-[80%] flex items-center justify-center">
-			<p>Error Occured</p>
+			<slot>Testing</slot>
 		</div>
 	</div>
 </template>

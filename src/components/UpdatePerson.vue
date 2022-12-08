@@ -2,6 +2,10 @@
 	import axios from 'axios';
 	import type { PersonInfo } from '@/stores/types';
 	import { reactive, watch } from 'vue';
+
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	const notificationStore = useNotificationStore();
+
 	const props = defineProps<{ user: PersonInfo }>();
 
 	let copy = reactive<PersonInfo>({ ...props.user });
@@ -14,11 +18,19 @@
 	async function updateUser() {
 		try {
 			await axios.patch('https://reqres.in/api/users/', { ...copy });
-			await alert('updated!');
-			hideModal();
+
+			await hideModal();
+			await notificationStore.setNotifyArgument({
+				messageType: 1,
+				messageProp: 'User Updated',
+			});
 		} catch (error) {
 			alert('alert check joe');
 			console.log(error);
+			notificationStore.setNotifyArgument({
+				messageType: 0,
+				messageProp: 'Update Failed',
+			});
 		}
 	}
 

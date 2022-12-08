@@ -1,7 +1,8 @@
 <script setup lang="ts">
 	import axios from 'axios';
 	import { reactive } from 'vue';
-
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	const notificationStore = useNotificationStore();
 	type user = {
 		firstName: string;
 		lastName: string;
@@ -17,11 +18,17 @@
 
 	async function createNewUser() {
 		try {
-			axios.post('https://reqres.in/api/users', { ...newUser });
-			alert('User added');
-			clearInput();
+			await axios.post('https://reqres.in/api/users', { ...newUser });
+			await clearInput();
+			await notificationStore.setNotifyArgument({
+				messageType: 1,
+				messageProp: 'User Created! (not really)',
+			});
 		} catch (error) {
-			alert('whoops error occured');
+			await notificationStore.setNotifyArgument({
+				messageType: 0,
+				messageProp: 'Error Upon Creating User',
+			});
 		}
 	}
 
