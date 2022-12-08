@@ -10,9 +10,10 @@
 	const notificationStore = useNotificationStore();
 	const groupOfNotificationStore = notificationStore.groupOfNotifications;
 	const { notificationGroupLength } = storeToRefs(notificationStore);
+
 	// simulate addimg shit to notification
 	function testButtonNotify() {
-		alert('notified');
+		// alert('notified');
 		notificationStore.setNotifyArgument({
 			messageType: 1,
 			messageProp: 'test',
@@ -21,8 +22,10 @@
 
 	watch(notificationGroupLength, () => {
 		if (notificationGroupLength.value != 0) {
-			alert('not zero');
-		} else alert('zero');
+			notificationStore.notificationTimer();
+		} else {
+			notificationStore.stopDel();
+		}
 	});
 </script>
 
@@ -36,17 +39,18 @@
 	>
 		NOTIFY
 	</button>
+	<button
+		class="w-20 h-10 bg-red-500 text-lg text-neutral-100 font-sans font-bold"
+	>
+		delete
+	</button>
 	<div
 		class="w-screen h-screen fixed flex items-end justify-end z-50 top-0 left-0 pointer-events-none p-10"
 	>
 		<notificationPopUp></notificationPopUp>
 	</div>
 	<div v-for="(notif, index) in groupOfNotificationStore" :key="index">
-		{{ notif }}
-	</div>
-	<div>
-		tite
-		{{ groupOfNotificationStore }}
+		{{ index }}
 	</div>
 </template>
 

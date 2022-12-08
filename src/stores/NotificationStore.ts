@@ -5,6 +5,7 @@ import { defineStore } from 'pinia';
 type notifyType = { messageType: number; messageProp: String };
 
 export const useNotificationStore = defineStore('notify', () => {
+	let lue: any = null;
 	const groupOfNotifications = ref<notifyType[]>([]);
 
 	const notificationGroupLength = computed((): number => {
@@ -13,14 +14,18 @@ export const useNotificationStore = defineStore('notify', () => {
 		} else return 0;
 	});
 
-	// function notificationTimer() {
-	// 	while (notificationGroupLength.value != 0) {
-	// 		setTimeout(() => {
-	// 			alert('deleting');
-	// 			groupOfNotifications.value?.shift();
-	// 		}, 4000);
-	// 	}
-	// }
+	function notificationTimer() {
+		if (!lue) {
+			lue = setInterval(() => {
+				groupOfNotifications.value.shift();
+			}, 2000);
+		}
+	}
+
+	function stopDel() {
+		clearInterval(lue);
+		lue = null;
+	}
 
 	const notifyArguments = reactive<notifyType>({
 		// 1 is success and 0 is error
@@ -38,7 +43,8 @@ export const useNotificationStore = defineStore('notify', () => {
 		groupOfNotifications,
 		notifyArguments,
 		setNotifyArgument,
-		// notificationTimer,
+		notificationTimer,
 		notificationGroupLength,
+		stopDel,
 	};
 });
