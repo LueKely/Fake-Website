@@ -20,8 +20,8 @@ export const useNotificationStore = defineStore('notify', () => {
 	function notificationTimer() {
 		if (!intervalId) {
 			intervalId = setInterval(() => {
-				groupOfNotifications.value.splice(0, 1);
-			}, 2000);
+				groupOfNotifications.value.shift();
+			}, 3000);
 		}
 	}
 

@@ -28,6 +28,10 @@
 		});
 	}
 
+	function removeItem() {
+		notificationStore.groupOfNotifications.splice(0, 1);
+	}
+
 	watch(notificationGroupLength, () => {
 		if (notificationGroupLength.value != 0) {
 			notificationStore.notificationTimer();
@@ -52,6 +56,12 @@
 		@click="testWarnButtonNotify"
 	>
 		WARN
+	</button>
+	<button
+		class="w-20 h-10 bg-orange-500 text-lg text-neutral-100 font-sans font-bold"
+		@click="removeItem"
+	>
+		REMOVE
 	</button>
 </template>
 
