@@ -103,16 +103,38 @@
 
 	<!-- this is were the notification goes -->
 	<div
-		class="w-screen h-screen fixed flex flex-col-reverse items-end justify-start z-50 top-0 left-0 pointer-events-none p-10"
+		class="w-screen h-screen fixed flex flex-col items-end justify-start z-50 top-0 left-0 pointer-events-none p-10"
 	>
-		<div
-			v-for="(notif, index) in groupOfNotificationStore"
-			:key="index"
-			class="my-2"
-		>
-			<notificationPopUp>{{ notif.messageProp }}</notificationPopUp>
-		</div>
+		<transition-group name="list" tag="ul">
+			<li
+				v-for="(notif, index) in groupOfNotificationStore"
+				:key="index"
+				class="my-2"
+			>
+				<notificationPopUp :message-type="notif.messageType">{{
+					notif.messageProp
+				}}</notificationPopUp>
+			</li>
+		</transition-group>
 	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+	.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+		transition: all 0.5s ease;
+	}
+
+	.list-enter-from,
+	.list-leave-to {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+
+	/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+	.list-leave-active {
+		position: absolute;
+	}
+</style>

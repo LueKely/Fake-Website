@@ -13,3 +13,5 @@ must also export a function that will req the type of notification only add it i
 # displaying the array
 
 - use for each with a key and shit
+
+i want to make a switch if true will run the function that will
