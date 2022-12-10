@@ -1,7 +1,6 @@
 <script setup lang="ts">
 	import { useNotificationStore } from '@/stores/NotificationStore';
 	import HttpRequestsVue from '@/components/HttpRequests.vue';
-	import notificationPopUp from '@/components/notificationPopUp.vue';
 
 	import { watch } from 'vue';
 	import { storeToRefs } from 'pinia';

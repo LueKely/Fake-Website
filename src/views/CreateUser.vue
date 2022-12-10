@@ -53,7 +53,7 @@
 					<div class="flex items-center justify-center my-2">
 						<div class="w-[12vw] h-14 mr-[1vw]">
 							<input
-								class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+								class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:text-opacity-70 placeholder:font-sans"
 								type="text"
 								v-model="newUser.firstName"
 								placeholder="First Name"
@@ -62,7 +62,7 @@
 						<div class="w-[12vw] h-14">
 							<input
 								type="text"
-								class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+								class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:text-opacity-70 placeholder:font-sans"
 								v-model="newUser.lastName"
 								placeholder="Last Name"
 							/>
@@ -71,7 +71,7 @@
 					<div class="w-[25vw] h-14 my-2">
 						<input
 							type="text"
-							class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+							class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:text-opacity-70 placeholder:font-sans"
 							v-model="newUser.email"
 							placeholder="Email"
 						/>
@@ -79,7 +79,7 @@
 
 					<div class="w-[25vw] h-14 my-2">
 						<input
-							class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:font-sans"
+							class="w-full h-full focus:outline-none drop-shadow-lg bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans placeholder:text-neutral-50 placeholder:text-opacity-70 placeholder:font-sans"
 							type="text"
 							v-model="newUser.avatar"
 							placeholder="Avatar URL"
