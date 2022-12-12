@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import axios from 'axios';
 	import type { PersonInfo } from '@/stores/types';
-	import { reactive, watch } from 'vue';
+	import { reactive, watch, computed } from 'vue';
 
 	import { useNotificationStore } from '@/stores/NotificationStore';
 	const notificationStore = useNotificationStore();
@@ -10,6 +10,19 @@
 
 	let copy = reactive<PersonInfo>({ ...props.user });
 	let emit = defineEmits<{ (e: 'closeUpdate', status: boolean): void }>();
+
+	const isFormComplete = computed(() => {
+		if (
+			copy.avatar == '' ||
+			copy.email == '' ||
+			copy.first_name == '' ||
+			copy.last_name == '' ||
+			// yeah namumula and shit kasi di int my bad
+			copy.id == ''
+		) {
+			return true;
+		} else return false;
+	});
 
 	function hideModal() {
 		emit('closeUpdate', false);
@@ -88,7 +101,8 @@
 
 			<div class="w-[12vw] flex justify-between">
 				<button
-					class="w-28 h-10 rounded-full border-[1px] border-neutral-500 font-sans font-bold hover:bg-purple-500 hover:text-neutral-100 hover:border-purple-500 transition-all ease-in-out"
+					:disabled="isFormComplete"
+					class="w-28 h-10 rounded-full border-[1px] border-neutral-500 font-sans font-bold hover:bg-purple-500 hover:text-neutral-100 hover:border-purple-500 transition-all ease-in-out disabled:bg-neutral-500 disabled:text-neutral-100 disabled:hover:border-neutral-500 disabled:hover:bg-neutral-100 disabled:hover:text-neutral-600"
 					@click="updateUser"
 				>
 					Send

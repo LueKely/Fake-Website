@@ -16,6 +16,17 @@
 		userPassword: '',
 	});
 
+	const isFormComplete = computed(() => {
+		if (
+			newUser.userEmail == '' ||
+			newUser.userEmail == '' ||
+			newUser.userPassword == '' ||
+			checkPass.value == ''
+		) {
+			return true;
+		} else return false;
+	});
+
 	const checkPass = ref<string>('');
 	const showPass = ref<boolean>(false);
 	const passType = ref<string>('password');
@@ -133,7 +144,8 @@
 					</div>
 
 					<button
-						class="mx-auto h-12 w-[25vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out"
+						:disabled="isFormComplete"
+						class="mx-auto h-12 w-[25vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out disabled:bg-neutral-600 disabled:hover:border-neutral-600 disabled:hover:text-neutral-600 disabled:hover:bg-neutral-100"
 						@click="registerNewUser"
 					>
 						Register!!

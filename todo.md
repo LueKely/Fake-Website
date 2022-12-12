@@ -1,7 +1,11 @@
 # To-do
 
+[] fix the ugly ass nav bar
+[] 404 page
+[] other pages na empty
 [] added disabled button
 [] fix the search button
+[] adjust toast
 
 ## Internals
 

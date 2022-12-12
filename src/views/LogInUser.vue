@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import { RouterLink } from 'vue-router';
 	import axios from 'axios';
-	import { ref, reactive, watch } from 'vue';
+	import { ref, reactive, watch, computed } from 'vue';
 	import { useLogInStore } from '@/stores/LogInStore';
 	import LogOut from '@/components/LogOut.vue';
 	import router from '@/router';
@@ -22,6 +22,12 @@
 	const userLogIn = reactive<user>({ email: '', password: '' });
 	const showPass = ref<boolean>(false);
 	const passType = ref<string>('password');
+
+	const isFormComplete = computed(() => {
+		if (userLogIn.email == '' || userLogIn.password == '') {
+			return true;
+		} else return false;
+	});
 
 	// sending request
 	async function userLogInReq() {
@@ -108,7 +114,8 @@
 
 				<button
 					@click="userLogInReq"
-					class="mx-auto h-10 w-[20vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out"
+					:disabled="isFormComplete"
+					class="mx-auto h-10 w-[20vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out disabled:bg-neutral-600 disabled:hover:border-neutral-600 disabled:hover:text-neutral-600 disabled:hover:bg-neutral-100"
 				>
 					Log In
 				</button>

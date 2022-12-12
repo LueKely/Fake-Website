@@ -77,21 +77,21 @@
 			<p class="font-sans text-base text-neutral-800 my-5">
 				Test the notification button if you want
 			</p>
-			<div class="flex items-center justify-center">
+			<div class="w-full flex items-center justify-between">
 				<button
-					class="w-20 h-10 bg-green-500 text-lg text-neutral-100 font-sans font-bold"
+					class="w-20 h-10 bg-green-500 text-lg text-neutral-100 font-sans font-bold rounded-xl"
 					@click="testButtonNotify"
 				>
 					NOTIFY
 				</button>
 				<button
-					class="w-20 h-10 bg-red-500 text-lg text-neutral-100 font-sans font-bold"
+					class="w-20 h-10 bg-red-500 text-lg text-neutral-100 font-sans font-bold rounded-xl"
 					@click="testWarnButtonNotify"
 				>
 					WARN
 				</button>
 				<button
-					class="w-20 h-10 bg-orange-500 text-lg text-neutral-100 font-sans font-bold"
+					class="w-20 h-10 bg-orange-500 text-lg text-neutral-100 font-sans font-bold rounded-xl"
 					@click="removeItem"
 				>
 					REMOVE

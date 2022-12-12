@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import axios from 'axios';
-	import { reactive } from 'vue';
+	import { reactive, computed } from 'vue';
 	import { useNotificationStore } from '@/stores/NotificationStore';
 	const notificationStore = useNotificationStore();
 	type user = {
@@ -14,6 +14,17 @@
 		lastName: '',
 		email: '',
 		avatar: '',
+	});
+
+	const isFormComplete = computed(() => {
+		if (
+			newUser.firstName == '' ||
+			newUser.lastName == '' ||
+			newUser.email == '' ||
+			newUser.avatar == ''
+		) {
+			return true;
+		} else return false;
 	});
 
 	async function createNewUser() {
@@ -89,8 +100,9 @@
 						class="w-[21vw] h-12 flex items-end justify-between mx-auto mt-6"
 					>
 						<button
+							:disabled="isFormComplete"
 							@click="createNewUser"
-							class="w-[10vw] h-12 drop-shadow-lg text-xl bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans font-bold hover:text-violet-500 hover:bg-opacity-60 transition-all ease-in-out"
+							class="w-[10vw] h-12 drop-shadow-lg text-xl bg-neutral-100 bg-opacity-30 backdrop-blur-sm rounded-full pl-2 text-neutral-50 font-sans font-bold hover:text-violet-500 hover:bg-opacity-60 transition-all ease-in-out disabled:bg-neutral-600 disabled:bg-opacity-60 disabled:hover:bg-neutral-400 disabled:hover:bg-opacity-60 disabled:hover:text-neutral-200"
 						>
 							Submit
 						</button>
