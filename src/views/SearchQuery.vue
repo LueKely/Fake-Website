@@ -28,6 +28,7 @@
 			});
 		}
 	}
+
 	onMounted(async () => {
 		await searchingResults();
 	});

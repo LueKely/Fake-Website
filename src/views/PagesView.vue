@@ -26,18 +26,22 @@
 	});
 </script>
 <template>
-	<!-- <div>Your are in Page {{ prop.id }}</div> -->
-	<div v-if="fetchPages.fetchedId?.length == 0">
-		<div class="w-full h-[80vh]">Looks like it is empty</div>
-	</div>
-	<div v-else-if="fetchPages.fetchedId?.length != 0">
-		<div class="w-full">
-			<div class="flex w-[69%] m-auto items-start justify-start flex-wrap p-6">
-				<PeopleInfo
-					v-for="(item, index) in fetchPeople"
-					:key="index"
-					:fetched-person="item"
-				></PeopleInfo>
+	<div class="bg-neutral-100 w-screen h-full">
+		<!-- <div>Your are in Page {{ prop.id }}</div> -->
+		<div v-if="fetchPages.fetchedId?.length == 0">
+			<div class="w-full h-[80vh]">Looks like it is empty</div>
+		</div>
+		<div v-else-if="fetchPages.fetchedId?.length != 0">
+			<div class="w-full">
+				<div
+					class="flex w-[69%] m-auto items-start justify-start flex-wrap p-6"
+				>
+					<PeopleInfo
+						v-for="(item, index) in fetchPeople"
+						:key="index"
+						:fetched-person="item"
+					></PeopleInfo>
+				</div>
 			</div>
 		</div>
 	</div>

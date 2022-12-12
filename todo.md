@@ -1,5 +1,8 @@
 # To-do
 
+[] added disabled button
+[] fix the search button
+
 ## Internals
 
 [x] session when logging in

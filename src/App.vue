@@ -98,7 +98,7 @@
 		</nav>
 	</div>
 
-	<router-view></router-view>
+	<router-view :key="$route.fullPath"></router-view>
 	<!-- <GoBack></GoBack> -->
 
 	<!-- this is were the notification goes -->
