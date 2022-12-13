@@ -32,7 +32,7 @@
 	}
 
 	watch(currentQuery, async () => {
-		queryProp.value = route.query.result?.toString();
+		queryProp.value = await route.query.result?.toString();
 
 		queryResults.value = await [];
 		await searchingResults();
@@ -43,12 +43,24 @@
 	});
 </script>
 <template>
-	<h1>Search:{{ route.query.result }}</h1>
-	<p>Results are:{{ queryResults.length }}</p>
-
-	<PeopleInfo
-		v-for="(item, index) in queryResults"
-		:key="index"
-		:fetched-person="item"
-	></PeopleInfo>
+	<div class="h-[90vh] w-full p-6">
+		<div class="h-[10vh] w-full flex flex-col items-center justify-center">
+			<h1 class="font-sans font-bold text-4xl text-purple-500">
+				Search:
+				<span class="font-sans font-bold text-4xl text-neutral-800">{{
+					route.query.result
+				}}</span>
+			</h1>
+			<p class="text-neutral-500 font-light text-lg">
+				Results are: {{ queryResults.length }}
+			</p>
+		</div>
+		<div class="flex w-[80vw] m-auto items-start justify-start flex-wrap p-6">
+			<PeopleInfo
+				v-for="(item, index) in queryResults"
+				:key="index"
+				:fetched-person="item"
+			></PeopleInfo>
+		</div>
+	</div>
 </template>

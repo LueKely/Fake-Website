@@ -3,9 +3,10 @@
 [] loading cards
 [] fix the ugly ass nav bar
 [] 404 page
-[] other pages na empty
+[x] other pages na empty is pages
 [x] added disabled button
-[x] fix the search
+[x] fix the search logic
+[x] fix search page
 [] adjust toast
 
 ## Internals

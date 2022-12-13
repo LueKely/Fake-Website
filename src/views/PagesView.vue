@@ -32,7 +32,11 @@
 <template>
 	<div class="bg-neutral-100 w-screen h-full">
 		<div v-if="isEmpty">
-			<div class="w-full h-[80vh]">Looks like it is empty</div>
+			<div class="w-full h-[90vh] flex items-center justify-center">
+				<h1 class="font-sans font-bold text-neutral-800 text-4xl">
+					Uh oh... Looks like it's empty 💀
+				</h1>
+			</div>
 		</div>
 		<div v-else-if="!isEmpty">
 			<div class="w-full">
