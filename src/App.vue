@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { RouterLink, RouterView } from 'vue-router';
+	import { RouterLink, RouterView, useRoute } from 'vue-router';
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
 
@@ -98,7 +98,8 @@
 		</nav>
 	</div>
 
-	<router-view :key="$route.fullPath"></router-view>
+	<!-- :key="$route.fullPath" -->
+	<router-view></router-view>
 	<!-- <GoBack></GoBack> -->
 
 	<!-- this is were the notification goes -->

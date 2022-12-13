@@ -1,10 +1,11 @@
 # To-do
 
+[] loading cards
 [] fix the ugly ass nav bar
 [] 404 page
 [] other pages na empty
-[] added disabled button
-[] fix the search button
+[x] added disabled button
+[x] fix the search
 [] adjust toast
 
 ## Internals

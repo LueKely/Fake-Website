@@ -1,12 +1,16 @@
 <script setup lang="ts">
-	import { ref, onMounted } from 'vue';
-	import { useRoute } from 'vue-router';
+	import { ref, onMounted, watch, computed } from 'vue';
+	import { useRoute, useRouter } from 'vue-router';
 	import { useFetchData } from '@/stores/fetchList';
 	import type { PersonInfo } from '@/stores/types';
 	import PeopleInfo from '@/components/PeopleInfo.vue';
 
 	const route = useRoute();
+	const router = useRouter();
 
+	const currentQuery = computed(() => {
+		return router.currentRoute.value.query.result;
+	});
 	const fetchStore = useFetchData();
 	const queryResults = ref<PersonInfo[]>([]);
 
@@ -14,8 +18,6 @@
 
 	async function searchingResults() {
 		for (let index = 0; index < 2; index++) {
-			await console.log(`Page:${index} started`);
-
 			await fetchStore.getData(index + 1);
 			await fetchStore.fetchedId?.forEach((element) => {
 				if (
@@ -28,6 +30,13 @@
 			});
 		}
 	}
+
+	watch(currentQuery, async () => {
+		queryProp.value = route.query.result?.toString();
+
+		queryResults.value = await [];
+		await searchingResults();
+	});
 
 	onMounted(async () => {
 		await searchingResults();

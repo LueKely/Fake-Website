@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	import PeopleInfo from '@/components/PeopleInfo.vue';
 	import { useFetchData } from '@/stores/fetchList';
-	import { onMounted, ref, watch } from 'vue';
+	import { onMounted, ref, watch, computed } from 'vue';
 	import type { PersonInfo } from '@/stores/types';
 
 	const prop = defineProps<{ id: string }>();
@@ -17,6 +17,10 @@
 		fetchPeople.value = await fetchPages.fetchedId;
 	}
 
+	const isEmpty = computed(() => {
+		return fetchPages.fetchedId?.length == 0;
+	});
+
 	watch(prop, () => {
 		getAll();
 	});
@@ -27,11 +31,10 @@
 </script>
 <template>
 	<div class="bg-neutral-100 w-screen h-full">
-		<!-- <div>Your are in Page {{ prop.id }}</div> -->
-		<div v-if="fetchPages.fetchedId?.length == 0">
+		<div v-if="isEmpty">
 			<div class="w-full h-[80vh]">Looks like it is empty</div>
 		</div>
-		<div v-else-if="fetchPages.fetchedId?.length != 0">
+		<div v-else-if="!isEmpty">
 			<div class="w-full">
 				<div
 					class="flex w-[69%] m-auto items-start justify-start flex-wrap p-6"
