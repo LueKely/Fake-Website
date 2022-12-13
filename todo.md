@@ -2,7 +2,8 @@
 
 [] loading cards
 [] fix the ugly ass nav bar
-[] 404 page
+[x] 404 page
+^ might need adjustments
 [x] other pages na empty is pages
 [x] added disabled button
 [x] fix the search logic

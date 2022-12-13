@@ -11,6 +11,7 @@ module.exports = {
 				BannerLogIn: "url('./Log-in.webp')",
 				SignUp: "url('./Clarence.svg')",
 				CreateWaves: "url('./CreateWaves.svg')",
+				error404: "url('./404.svg)",
 			},
 		},
 	},
