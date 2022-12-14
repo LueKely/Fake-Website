@@ -1,10 +1,8 @@
 <script setup lang="ts">
-	import { ref } from 'vue';
 	const props = defineProps({ messageType: Number });
 	function sayHello() {
 		alert('joe');
 	}
-	const test = ref('bg-lime-500');
 </script>
 <template>
 	<div

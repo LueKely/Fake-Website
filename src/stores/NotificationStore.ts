@@ -7,9 +7,7 @@ export type notifyType = { messageType: number; messageProp: String };
 export const useNotificationStore = defineStore('notify', () => {
 	let intervalId: any = null;
 	// init array of the notifications
-	const groupOfNotifications = ref<notifyType[]>([
-		{ messageProp: 'Hi!', messageType: 1 },
-	]);
+	const groupOfNotifications = ref<notifyType[]>([]);
 
 	// returns the length of the array
 	const notificationGroupLength = computed((): number => {

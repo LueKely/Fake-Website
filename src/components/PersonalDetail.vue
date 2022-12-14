@@ -74,7 +74,7 @@
 			<div v-if="delModalStatus == true">
 				<Teleport to="#test">
 					<DeletePerson
-						:id="props.fetchedPerson.id"
+						:id="(props.fetchedPerson.id as number)"
 						@delete-modal="hideModalDel"
 					></DeletePerson
 				></Teleport>

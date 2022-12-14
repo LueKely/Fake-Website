@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, useRoute } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import { useLogInStore } from '@/stores/LogInStore';
 import LogInUser from '../views/LogInUser.vue';
@@ -31,7 +31,7 @@ const router = createRouter({
 					name: 'PagesView',
 					component: () => import('../views/PagesView.vue'),
 					props: true,
-					beforeEnter(to, from) {
+					beforeEnter(to) {
 						if (parseInt(to.params.id.toString()) > 12)
 							return {
 								name: 'NotFound',
@@ -75,7 +75,7 @@ const router = createRouter({
 	},
 });
 
-router.beforeEach((to, from) => {
+router.beforeEach((to) => {
 	const logInStore = useLogInStore();
 	const queryStore = useQueryStore();
 	logInStore.checkLogInStatus();

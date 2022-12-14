@@ -18,7 +18,8 @@
 			copy.first_name == '' ||
 			copy.last_name == '' ||
 			// yeah namumula and shit kasi di int my bad
-			copy.id == ''
+			(copy.id as string) == '' ||
+			(copy.id as number) < 0
 		) {
 			return true;
 		} else return false;

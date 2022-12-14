@@ -10,6 +10,8 @@
 	import { watch } from 'vue';
 	import { storeToRefs } from 'pinia';
 
+	import type { notifyType } from '@/stores/NotificationStore';
+
 	const count = useCounterStore();
 	const test = people();
 
@@ -113,7 +115,7 @@
 		>
 			<div
 				v-for="notif in groupOfNotificationStore"
-				:key="notif.messageProp as string "
+				:key="notif as notifyType "
 				class="my-1"
 			>
 				<notificationPopUp :message-type="notif.messageType">{{
