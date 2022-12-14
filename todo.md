@@ -1,5 +1,17 @@
 # To-do
 
+i hate this project haha
+[?] loading cards
+^ cant do this :(
+[] fix the ugly ass nav bar
+[x] 404 page
+[x] ^ might need adjustments
+[x] other pages na empty is pages
+[x] added disabled button
+[x] fix the search logic
+[x] fix search page
+[] adjust toast
+
 ## Internals
 
 [x] session when logging in
@@ -10,7 +22,7 @@
 [x] on click make a more specific info on user
 [x] can edit user when clicking on said user
 [] notification when things went smoothly or not
-[] make teleport and vif for more details
+[x] make teleport and vif for more details
 [x] log in log out register
 
 ## Routing
@@ -23,11 +35,11 @@
 
 ## Front end
 
-[] Search bar for the navbar
+[x] Search bar for the navbar
 [] night mode
 [X] pagination
-[] scrolling gaming OY WHAT DOES DIS MEAN HU?
-[] that home page with fake shit
+[x] scrolling gaming OY WHAT DOES DIS MEAN HU?
+[x] that home page with fake shit
 [x] make it as search box inside the page views and yeah
 
 ## Features

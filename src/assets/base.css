@@ -17,7 +17,7 @@
 body {
 	min-height: 100vh;
 	color: var(--color-text);
-	background: var(--color-background);
+
 	transition: color 0.5s, background-color 0.5s;
 	line-height: 1.6;
 	font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -27,10 +27,19 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	@apply bg-neutral-100;
 }
 .router-link-active {
 	@apply text-gray-500;
 }
 .pagination.router-link-active {
 	@apply border-[1px] text-purple-500 border-purple-500;
+}
+
+.bg-success {
+	@apply bg-lime-500;
+}
+
+.bg-error {
+	@apply bg-red-500;
 }

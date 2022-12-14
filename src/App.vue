@@ -1,9 +1,14 @@
 <script setup lang="ts">
-	import { RouterLink, RouterView } from 'vue-router';
+	import { RouterLink, RouterView, useRoute } from 'vue-router';
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
-	import GoBack from './components/GoBack.vue';
+
 	import SearchComponent from './components/SearchComponent.vue';
+
+	import notificationPopUp from '@/components/notificationPopUp.vue';
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	import { watch } from 'vue';
+	import { storeToRefs } from 'pinia';
 
 	const count = useCounterStore();
 	const test = people();
@@ -11,6 +16,20 @@
 	console.log(test.sayHiName);
 
 	console.log(count.count);
+
+	// notification stuff
+	// destructuring? idk
+	const notificationStore = useNotificationStore();
+	const groupOfNotificationStore = notificationStore.groupOfNotifications;
+	const { notificationGroupLength } = storeToRefs(notificationStore);
+
+	watch(notificationGroupLength, () => {
+		if (notificationGroupLength.value != 0) {
+			notificationStore.notificationTimer();
+		} else {
+			notificationStore.stopDel();
+		}
+	});
 </script>
 
 <template>
@@ -26,7 +45,7 @@
 		</div>
 
 		<nav
-			class="font-bold text-lg flex items-center justify-between w-[30vw] mr-auto ml-[5rem]"
+			class="font-bold text-lg flex items-center justify-between w-[20vw] mr-auto ml-[5rem]"
 		>
 			<RouterLink
 				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"
@@ -79,8 +98,43 @@
 		</nav>
 	</div>
 
+	<!-- :key="$route.fullPath" -->
 	<router-view></router-view>
 	<!-- <GoBack></GoBack> -->
+
+	<!-- this is were the notification goes -->
+	<div
+		class="w-screen h-screen fixed flex flex-col items-end justify-end z-50 top-0 left-0 pointer-events-none p-10"
+	>
+		<transition-group
+			name="list"
+			tag="div"
+			class="w-[300px] h-full flex items-end flex-col-reverse justify-start"
+		>
+			<div v-for="notif in groupOfNotificationStore" :key="notif" class="my-1">
+				<notificationPopUp :message-type="notif.messageType">{{
+					notif.messageProp
+				}}</notificationPopUp>
+			</div>
+		</transition-group>
+	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+	.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+		transition: all 0.5s ease;
+	}
+
+	.list-enter-from,
+	.list-leave-to {
+		opacity: 0;
+	}
+
+	/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+	.list-leave-active {
+		position: absolute;
+	}
+</style>

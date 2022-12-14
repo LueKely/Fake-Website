@@ -3,6 +3,7 @@
 	import type { PersonInfo } from '@/stores/types';
 	import UpdatePerson from './UpdatePerson.vue';
 	import DeletePerson from './DeletePerson.vue';
+
 	const modalStatus = ref(false);
 	const delModalStatus = ref(false);
 
@@ -22,7 +23,7 @@
 	const props = defineProps<{ fetchedPerson: PersonInfo }>();
 </script>
 <template>
-	<div class="w-full h-full">
+	<div class="w-full h-full overflow-hidden">
 		<h1 class="font-sans font-bold text-2xl h-[10%]">DETAILS</h1>
 		<div class="h-[70%] flex items-center justify-center">
 			<div>
@@ -62,17 +63,21 @@
 		<!-- teleport -->
 		<div>
 			<div v-if="modalStatus == true">
-				<UpdatePerson
-					:user="props.fetchedPerson"
-					@close-update="hideModal"
-				></UpdatePerson>
+				<teleport to="#test">
+					<UpdatePerson
+						:user="props.fetchedPerson"
+						@close-update="hideModal"
+					></UpdatePerson
+				></teleport>
 			</div>
 
 			<div v-if="delModalStatus == true">
-				<DeletePerson
-					:id="props.fetchedPerson.id"
-					@delete-modal="hideModalDel"
-				></DeletePerson>
+				<Teleport to="#test">
+					<DeletePerson
+						:id="props.fetchedPerson.id"
+						@delete-modal="hideModalDel"
+					></DeletePerson
+				></Teleport>
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,8 @@
 	import axios from 'axios';
 	import { reactive, ref, computed, watch } from 'vue';
 	import { RouterLink } from 'vue-router';
-
+	import { useNotificationStore } from '@/stores/NotificationStore';
+	const notificationStore = useNotificationStore();
 	type registerUser = {
 		userName: string;
 		userEmail: string;
@@ -13,6 +14,17 @@
 		userName: '',
 		userEmail: '',
 		userPassword: '',
+	});
+
+	const isFormComplete = computed(() => {
+		if (
+			newUser.userEmail == '' ||
+			newUser.userEmail == '' ||
+			newUser.userPassword == '' ||
+			checkPass.value == ''
+		) {
+			return true;
+		} else return false;
 	});
 
 	const checkPass = ref<string>('');
@@ -32,9 +44,16 @@
 			);
 			console.log(createPostReq.value);
 
-			await alert('success!!');
+			await notificationStore.setNotifyArgument({
+				messageType: 1,
+				messageProp: 'Creation Successful',
+			});
 		} catch (error) {
-			alert('error');
+			console.log('error');
+			await notificationStore.setNotifyArgument({
+				messageType: 0,
+				messageProp: 'Creation Failed',
+			});
 		}
 	}
 
@@ -125,7 +144,8 @@
 					</div>
 
 					<button
-						class="mx-auto h-12 w-[25vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out"
+						:disabled="isFormComplete"
+						class="mx-auto h-12 w-[25vw] my-3 text-neutral-100 bg-violet-500 rounded-full font-bold font-sans text-lg hover:bg-neutral-100 hover:border-[1px] hover:border-violet-500 hover:text-violet-500 transition-all ease-in-out disabled:bg-neutral-600 disabled:hover:border-neutral-600 disabled:hover:text-neutral-600 disabled:hover:bg-neutral-100"
 						@click="registerNewUser"
 					>
 						Register!!
