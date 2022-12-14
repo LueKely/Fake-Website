@@ -2,12 +2,14 @@ import { reactive, ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 
 // type
-type notifyType = { messageType: number; messageProp: String };
+export type notifyType = { messageType: number; messageProp: String };
 
 export const useNotificationStore = defineStore('notify', () => {
 	let intervalId: any = null;
 	// init array of the notifications
-	const groupOfNotifications = ref<notifyType[]>([]);
+	const groupOfNotifications = ref<notifyType[]>([
+		{ messageProp: 'Hi!', messageType: 1 },
+	]);
 
 	// returns the length of the array
 	const notificationGroupLength = computed((): number => {

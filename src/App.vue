@@ -113,7 +113,7 @@
 		>
 			<div
 				v-for="notif in groupOfNotificationStore"
-				:key="notif.messageProp"
+				:key="notif.messageProp as string "
 				class="my-1"
 			>
 				<notificationPopUp :message-type="notif.messageType">{{
