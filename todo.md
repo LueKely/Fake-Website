@@ -1,9 +1,11 @@
 # To-do
 
-[] loading cards
+i hate this project haha
+[?] loading cards
+^ cant do this :(
 [] fix the ugly ass nav bar
 [x] 404 page
-^ might need adjustments
+[x] ^ might need adjustments
 [x] other pages na empty is pages
 [x] added disabled button
 [x] fix the search logic

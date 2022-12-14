@@ -45,7 +45,7 @@
 		</div>
 
 		<nav
-			class="font-bold text-lg flex items-center justify-between w-[30vw] mr-auto ml-[5rem]"
+			class="font-bold text-lg flex items-center justify-between w-[20vw] mr-auto ml-[5rem]"
 		>
 			<RouterLink
 				class="font-bold text-gray-900 hover:text-gray-500 transition-all ease-in-out"

@@ -9,9 +9,9 @@
 </script>
 
 <template>
-	<div class="flex w-[270px] h-[40px]">
+	<div class="flex w-[370px] h-[40px]">
 		<input
-			class="focus:outline-none w-[80%] h-full placeholder:text-violet-500 placeholder:opacity-50 border-violet-500 border-[1px] border-r-0 rounded-tl-full rounded-bl-full pl-2"
+			class="focus:outline-none w-[80%] h-full placeholder:text-violet-500 placeholder:opacity-50 border-violet-500 border-[1px] border-r-0 rounded-tl-full rounded-bl-full pl-2 bg-neutral-100"
 			type="text"
 			v-model="search"
 			placeholder="Search a Person!"
