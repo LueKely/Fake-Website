@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import { RouterLink, RouterView, useRoute } from 'vue-router';
+	import { RouterLink, RouterView } from 'vue-router';
 	import { useCounterStore } from '@/stores/counter';
 	import { people } from '@/stores/yow';
 
@@ -111,7 +111,11 @@
 			tag="div"
 			class="w-[300px] h-full flex items-end flex-col-reverse justify-start"
 		>
-			<div v-for="notif in groupOfNotificationStore" :key="notif" class="my-1">
+			<div
+				v-for="notif in groupOfNotificationStore"
+				:key="notif.messageProp"
+				class="my-1"
+			>
 				<notificationPopUp :message-type="notif.messageType">{{
 					notif.messageProp
 				}}</notificationPopUp>
